@@ -27,7 +27,7 @@ ZR and the Signal Scripts
 
     When the program starts, ZR uses routines contained in the files to read the appropriate signal script file.  The file 'lex.yy.c' contains a routine to split the signal script file into tokens.  These are passed to a routine in 'y.tab.c', which parses the script, i.e. recognises the different elements of the underlying program.
 
-    The routines in file 'sigscr.c', are then used to store the results in a lisp style tree structure in which the nodes and leafs represent mathematical and logical operators, subroutine names and variables. The routines are based on those published by Tom Niemann in his book "Lex & Yacc Tutorial" [https://www.epaperpress.com/lexandyacc/] and the associated calculator source code.  Niemann also provides an alternative storage method in which the script code is stored as an array of pseudo machine code instructions.
+    The routines in file 'load_sigscr_file.c', are then used to store the results in a lisp style tree structure in which the nodes and leafs represent mathematical and logical operators, subroutine names and variables. The routines are based on those published by Tom Niemann in his book "Lex & Yacc Tutorial" [https://www.epaperpress.com/lexandyacc/] and the associated calculator source code.  Niemann also provides an alternative storage method in which the script code is stored as an array of pseudo machine code instructions.
 
     Once the ZR program has finished the startup sequence, it enters a loop in which it regularly updates the state of each signal.  It does this by using a tree-walk scheme to visit and process the set of nodes appropriate to the signal.  It uses a simple stack for temporary variables.
 
