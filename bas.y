@@ -3,6 +3,7 @@
  *345678901234567890123456789012345678901234567890123456789012345678901234567890
  *
  *   File:  bas.y
+ *   Copyright 2022  David J. Webb
  *
  *   Bison file for parsing MSTS Signal Scripts.  Bison generates a C file
  *   "y.tab.c" containing the routine "yyparse".  When called from the main
@@ -131,16 +132,31 @@ nodeType *nPtr;    /* node pointer */
 %%
 program:
     script_list                  {
+    nodeType  *node, *last_node ;
+    int       op_index ;
                                    if(ip)printf("\n BISON: EXIT MSTS COMPILER ROUTINE\n");
-                                   $$ = opr(SC_PROGRAM,1,$1) ;
-                                   *sTree = $$ ;
-                                   return 0; /*exit(0)*/; }
-
+                                   if(*sTree == NULL){
+                                     $$ = opr(SC_PROGRAM,1,$1) ;
+                                     *sTree = $$ ;
+                                     return 0; /*exit(0)*/;
+                                   }else{
+                                     last_node = NULL ;
+                                     for(node=*sTree; node != NULL && node->opr.oper != SC_SCRIPT ; node= node->opr.op[0]){
+                                       last_node = node ;
+                                     }
+                                     if(node == NULL){
+                                       last_node->opr.op[0] = $$ ;
+                                     }else{
+                                       printf("  ERROR :: Unable to join script trees\n") ;
+                                     }
+                                     return 0;
+                                   }
+                                 }
 ;
 script_list:
     script                       {
                                    if(ip)printf("\n BISON: Found SC_SCRIPT_LIST 1\n");
-                                   $$ = $1;                }
+                                   $$ = opr(SC_SCRIPT_LIST, 2, NULL, $1); }
 
     | script_list script         {
                                    if(ip)printf("\n BISON: Found SC_SCRIPT_LIST 2\n");

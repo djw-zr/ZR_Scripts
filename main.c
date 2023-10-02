@@ -38,12 +38,30 @@
 #include "sigscr.h"
 #include "y.tab.h"
 
-int      read_sigscr_file() ;
+int load_sigscr_file(char *or_route_dir, char *script_file) ;
+int print_sigscr_tree(nodeType *p) ;
+int print_sigscr_names(nodeType *p) ;
 
+nodeType *sTree = NULL;
 
 int main(int argc, char *argv[]) {
 
-      read_sigscr_file() ;
+
+      printf("  Start program main\n") ;
+#if 1
+      load_sigscr_file(".","sigscr.dat") ;
+#else
+      load_sigscr_file(".","sigscr_test_1.dat") ;
+      load_sigscr_file(".","sigscr_test_2.dat") ;
+      load_sigscr_file(".","sigscr_eur1.dat") ;
+#endif
+      printf("\n  PRINT TREE\n\n") ;
+      print_sigscr_tree(sTree) ;
+
+      printf("\n  PRINT LIST\n\n") ;
+      print_sigscr_names(sTree) ;
+
+      printf("\n  End program main\n\n") ;
 
       return 0;
 }

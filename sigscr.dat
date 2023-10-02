@@ -1,0 +1,1552 @@
+///////////////////////////////////////////////////////////////////////////////
+// Signal Type Logic Scripts
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+SCRIPT NSW_SemLQSiding
+
+// Semaphore (Siding)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+
+	if (!enabled ||								// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())							// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+	else
+	{
+		state = SIGASP_CLEAR_2;
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSW_SemLQLoop
+
+// Semaphore (Loop)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+
+	if (!enabled ||								// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())							// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+	else
+	{
+		state = SIGASP_CLEAR_2;
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSW_SemLQDistFGL
+
+// Semaphore (Distant + Fixed Green Light)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	next_sig_lr ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+	next_state = next_sig_lr (SIGFN_NORMAL);			// Find the state of the next normal signal
+
+
+	if ( //!enabled ||							// Not enabled/cleared to show natural state?
+		!route_set() ||							// Switch not set as per link?
+		next_state ==# SIGASP_STOP)
+	{
+		state = SIGASP_APPROACH_2;
+	}
+	else
+	{
+		state = SIGASP_CLEAR_2;
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSW_SemUQ2Pos_Distant
+
+// Distant UQ 2-position Semaphore
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+// If required, show the 'stop' indication.
+	if (!enabled ||								// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||				// Block ahead not clear?
+		!route_set())							// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+// Signal head is enabled and the block ahead is clear - update based on state of
+// next signal head.
+	else
+      {
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else if (next_state ==# SIGASP_APPROACH_1)
+		{
+			state = SIGASP_CLEAR_2;
+		}
+		else //if (next_state ==# SIGASP_APPROACH_2 ||
+			//	next_state ==# SIGASP_CLEAR_2)
+		{
+			state = SIGASP_CLEAR_2;
+		}
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+SCRIPT NSW_SemLQDwarf
+
+// Semaphore (Dwarf)
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+
+	if (!enabled ||								// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())							// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+	else
+	{
+		state = SIGASP_CLEAR_1;
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSW_SemUQ3Pos_Distant
+
+// Distant UQ 3-position Semaphore
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+// If required, show the 'stop' indication.
+	if (!enabled ||								// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||				// Block ahead not clear?
+		!route_set())							// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+// Signal head is enabled and the block ahead is clear - update based on state of
+// next signal head.
+	else
+      {
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else if (next_state ==# SIGASP_APPROACH_1)
+		{
+			state = SIGASP_CLEAR_2;
+		}
+		else //if (next_state ==# SIGASP_APPROACH_2 ||
+			//	next_state ==# SIGASP_CLEAR_2)
+		{
+			state = SIGASP_CLEAR_2;
+		}
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWcollight-19
+
+// NSW 3 Coloured light head over 3 Coloured light Head Offset (GR-GR) Gantry Signal
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_mr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float		next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_mr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else
+			state = SIGASP_CLEAR_2;
+			
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWcollight-18
+
+// NSW 3 Coloured light head over 3 Coloured light Head for a Junction (GYR-GYR) - Gantry
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_mr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float		next_state;
+
+									// Look at turnout route first
+
+	if ( !route_set())						// Switch not set as per link?
+		
+		if ( !enabled ||					// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR )				// Block ahead not clear
+	{
+		state = SIGASP_STOP;
+	}
+
+		else
+	{		
+		next_state = next_sig_mr (SIGFN_NORMAL);		// Check next signal on turnout
+
+		if (next_state ==# SIGASP_STOP ||			// if signal at stop then put bottom signal to stop
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING )
+		{
+		state = SIGASP_APPROACH_3;
+		}
+		else
+		{
+		state = SIGASP_APPROACH_2;
+		}
+
+	}
+									// Then look at mian line route
+
+	else if ( !enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR )				// Block ahead not clear
+	{
+		state = SIGASP_STOP;
+	}
+		else
+	{		
+		next_state = next_sig_mr (SIGFN_NORMAL);		// Check next signal on main line
+
+		if ( next_state ==# SIGASP_STOP ||			// if signal at stop then put bottom signal to stop
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING )
+		{
+		state = SIGASP_APPROACH_1;
+		}
+		else if ( next_state ==# SIGASP_APPROACH_1)		// if next signal at approach then set to Clear_1
+			state = SIGASP_CLEAR_1;
+		
+		else
+			state = SIGASP_CLEAR_2;				// if next signal clear set to CLEAR_2
+		
+	}	
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWcollight-17
+
+// NSW 3 Coloured light head over 3 Coloured light Head Offset (GR-GYR) Gantry Signal
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_mr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float		next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_mr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else if (next_state ==# SIGASP_APPROACH_1)
+			 state = SIGASP_APPROACH_2;
+		else
+			state = SIGASP_CLEAR_2;
+			
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWStopSign
+
+// NSW Landmark signal head
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float		next_state;
+
+
+// Draw white matker light only
+
+	state = SIGASP_STOP;
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWBrakeLandmark
+
+// NSW Landmark signal head
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float		next_state;
+
+
+// Draw white matker light only
+
+	state = SIGASP_APPROACH_1;
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWcollight-16
+
+// NSW 1x3 Light Coloured head - Signal  (YR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+
+	if (!enabled ||								// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||				// Block ahead not clear?
+		!route_set())							// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+	else
+	{
+		state = SIGASP_APPROACH_1;					// Only display amber light if section clear.
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWcollight-15
+
+// NSW 1x2 Light Coloured head - Signal  (GY) Distant
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	next_sig_lr ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+	next_state = next_sig_lr (SIGFN_NORMAL);			// Find the state of the next normal signal
+
+	if ( //!enabled ||						// Not enabled/cleared to show natural state?
+		!route_set() ||						// Switch not set as per link?
+		next_state !=# SIGASP_STOP)				// Next signal (ie Home Signal is not at Stop)
+	{
+		state = SIGASP_CLEAR_2;
+	}
+	else
+	{
+		state = SIGASP_APPROACH_2;
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWcollight-14
+
+// NSW 1x2 Light Coloured head - Signal  (GR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+
+	if (!enabled ||								// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||				// Block ahead not clear?
+		!route_set())							// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+	else
+	{
+		state = SIGASP_CLEAR_2;
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollight-gantry-03
+
+// NSW 1x3 Light Coloured head - three aspects Gantry Signal  (GYR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+							// If required, show the 'stop' indication.
+	if (!enabled ||					// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||	// Block ahead not clear?
+		!route_set())				// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+							// Signal head is enabled and the block ahead is clear - update based 							// on state of next signal head.
+	else
+      {
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else if (next_state ==# SIGASP_APPROACH_1)
+		{
+			state = SIGASP_CLEAR_2;
+		}
+		else //if (next_state ==# SIGASP_APPROACH_2 ||
+			//	next_state ==# SIGASP_CLEAR_2)
+		{
+			state = SIGASP_CLEAR_2;
+		}
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWcollight-13
+
+// NSW 1x3 Light Coloured head - three aspects  (GYR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+// If required, show the 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 								// update based on state of next signal head.
+	else
+      {
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else if (next_state ==# SIGASP_APPROACH_1)
+		{
+			state = SIGASP_CLEAR_2;
+		}
+		else //if (next_state ==# SIGASP_APPROACH_2 ||
+			//	next_state ==# SIGASP_CLEAR_2)
+		{
+			state = SIGASP_CLEAR_2;
+		}
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWcollight-12
+
+// NSW 3 Coloured light head over 3 Coloured light Head Offset (GR-GYR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else if (next_state ==# SIGASP_APPROACH_1)
+			 state = SIGASP_APPROACH_2;
+		else
+			state = SIGASP_CLEAR_2;
+			
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollight-11
+
+// NSW Light 2 Light Coloured head over 2 Coloured Head - Offset (3 head spacing) (RG-YR) 
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else
+			state = SIGASP_APPROACH_2;
+			
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollight-gantry-02
+
+
+// NSW 3 Coloured light head over 3 Coloured light Head (GR-GYR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else if (next_state ==# SIGASP_APPROACH_1)
+			 state = SIGASP_APPROACH_2;
+		else
+			state = SIGASP_CLEAR_2;
+			
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollight-10
+
+// NSW 2 Light Coloured head over 2 Coloured Head (2 head spacing 2T,2B) (GR-GR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else
+			state = SIGASP_CLEAR_2;
+			
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollight-09
+
+// NSW 2 Light Coloured head over 2 Coloured Head (3 head spacing Bottom - 2T,3B) (GR-GR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else
+			state = SIGASP_CLEAR_2;
+			
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+SCRIPT NSWCollightsig-08
+
+// NSW 1 Light Coloured head - three aspects  (GYR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+								// If required, show the 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+      {
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else if (next_state ==# SIGASP_APPROACH_1)
+		{
+			state = SIGASP_CLEAR_2;
+		}
+		else //if (next_state ==# SIGASP_APPROACH_2 ||
+			//	next_state ==# SIGASP_CLEAR_2)
+		{
+			state = SIGASP_CLEAR_2;
+		}
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollightsig-07
+
+// NSW 2 Light Coloured head over 3 Coloured Head (2 Lamps bottom only) (G-GR)
+
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+									// Signal head is enabled and the block ahead is 										// clear - update based on state of next signal head.
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (!route_set()||!enabled ||
+			next_state ==# SIGASP_STOP ||			// Not enabled/cleared to show natural state?
+									// Switch not set as per link?
+			next_state ==# SIGASP_STOP ||	// Next signal at Stop
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else
+		{
+			state = SIGASP_CLEAR_2;
+			
+		}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+
+SCRIPT CTNPointIndication-light
+
+// CTN Point Indicator - lights
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+	else
+	{
+		state = SIGASP_CLEAR_2;
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+
+SCRIPT CTNPointIndication-head
+
+// CTN Point Indicator
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+	else
+	{
+		state = SIGASP_CLEAR_2;
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollight2x3Junct
+
+// NSW 3 Coloured light head over 3 Coloured light Head for a Junction (GYR-GYR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+									// Look at turnout route first
+
+	if ( !route_set())						// Switch not set as per link?
+		
+		if ( !enabled ||					// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR )				// Block ahead not clear
+	{
+		state = SIGASP_STOP;
+	}
+
+		else
+	{		
+		next_state = next_sig_lr (SIGFN_NORMAL);		// Check next signal on turnout
+
+		if (next_state ==# SIGASP_STOP ||			// if signal at stop then put bottom signal to stop
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING )
+		{
+		state = SIGASP_APPROACH_3;
+		}
+		else
+		{
+		state = SIGASP_APPROACH_2;
+		}
+
+	}
+									// Then look at mian line route
+
+	else if ( !enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR )				// Block ahead not clear
+	{
+		state = SIGASP_STOP;
+	}
+		else
+	{		
+		next_state = next_sig_lr (SIGFN_NORMAL);		// Check next signal on main line
+
+		if ( next_state ==# SIGASP_STOP ||			// if signal at stop then put bottom signal to stop
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING )
+		{
+		state = SIGASP_APPROACH_1;
+		}
+		else if ( next_state ==# SIGASP_APPROACH_1)		// if next signal at approach then set to Clear_1
+			state = SIGASP_CLEAR_1;
+		
+		else
+			state = SIGASP_CLEAR_2;				// if next signal clear set to CLEAR_2
+		
+	}	
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWLandmark
+
+// NSW Landmark signal head
+
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	
+
+
+// Draw white matker light only
+
+	state = SIGASP_APPROACH_1;
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollightsig-03
+
+// NSW 2 Coloured light head over 3 Coloured light Head (GR-GYR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else if (next_state ==# SIGASP_APPROACH_1)
+			 state = SIGASP_APPROACH_2;
+		else
+			state = SIGASP_CLEAR_2;
+			
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollightsig-04
+
+// NSW 2 Light Coloured head over 2 Coloured Head (3 head spacing) (GR-GR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else
+			state = SIGASP_CLEAR_2;
+			
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSW_SemLQHome
+
+// NSW Semephore (Home)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+
+	if (!enabled ||								// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||				// Block ahead not clear?
+		!route_set())							// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+	else
+	{
+		state = SIGASP_CLEAR_2;
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSW_SemLQHomeBranch
+
+// NSW Semephore (Home)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+
+	if (!enabled ||								// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||				// Block ahead not clear?
+		!route_set())							// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+	else
+	{
+		state = SIGASP_CLEAR_1;
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+
+///////////////////////////////////////////////////////////////////////////////
+SCRIPT NSW_SemLQDist
+
+// NSW Semephore (Distant)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	next_sig_lr ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+	next_state = next_sig_lr (SIGFN_NORMAL);			// Find the state of the next normal signal
+
+	if ( //!enabled ||						// Not enabled/cleared to show natural state?
+		!route_set() ||						// Switch not set as per link?
+		next_state ==# SIGASP_STOP)				// Next signal (ie Home Signal is at Stop)
+	{
+		state = SIGASP_APPROACH_2;				// Set signal to caution if above met
+	}
+	else
+	{
+		state = SIGASP_CLEAR_2;					// Set to clear if above not met
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSW_SemLQDistComb
+
+// NSW Semephore (Distant at Home Signal)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	next_sig_lr ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+	next_state = next_sig_lr (SIGFN_NORMAL);			// Find the state of the next normal signal
+
+	if ( //!enabled ||						// Not enabled/cleared to show natural state?
+		!route_set() ||						// Switch not set as per link?
+		next_state ==# SIGASP_STOP)				// Next signal (ie Home Signal is at Stop)
+	{
+		state = SIGASP_APPROACH_2;				// Set signal to caution if above met
+	}
+	else
+	{
+		state = SIGASP_CLEAR_2;					// Set to clear if above not met
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSW_SemUQ3Pos_Home
+
+// NSW UQ 3-position Semaphore
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+// If required, show the 'stop' indication.
+	if (!enabled ||								// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||				// Block ahead not clear?
+		!route_set())							// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+// Signal head is enabled and the block ahead is clear - update based on state of
+// next signal head.
+	else
+      {
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else if (next_state ==# SIGASP_APPROACH_1)
+		{
+			state = SIGASP_CLEAR_2;
+		}
+		else //if (next_state ==# SIGASP_APPROACH_2 ||
+			//	next_state ==# SIGASP_CLEAR_2)
+		{
+			state = SIGASP_CLEAR_2;
+		}
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+SCRIPT CTNShunt1
+
+// CTN Shunt Signal (single)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+
+	if (!enabled ||								// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||				// Block ahead not clear?
+		!route_set())							// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+	else
+	{
+		state = SIGASP_CLEAR_2;
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+SCRIPT CTNShunt2
+
+// CTN Shunt Signal (Wrong Road)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+
+	if (!enabled ||								// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||				// Block ahead not clear?
+		!route_set())							// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+	else
+	{
+		state = SIGASP_CLEAR_2;
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollight1x2+1x2gantry
+
+// NSW 2 Light Coloured head over 2 Coloured Head (3 head spacing) (GR-GR) Gantry Mounted
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else
+			state = SIGASP_CLEAR_2;
+			
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollight-gantry-01
+
+// NSW Light Coloured head over 2 Coloured Head (3 head spacing) (RG-YR) Gantry Mounted
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else
+			state = SIGASP_APPROACH_2;
+			
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollight-01Junct
+
+// NSW 3 Coloured light head over 3 Coloured light Head for a Junction (GYR-GR)
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+									// Look at turnout route first
+
+	if ( !route_set())						// Switch not set as per link?
+		
+		if ( !enabled ||					// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR )				// Block ahead not clear
+	{
+		state = SIGASP_STOP;
+	}
+
+		else
+	{		
+		next_state = next_sig_lr (SIGFN_NORMAL);		// Check next signal on turnout
+
+		if (next_state ==# SIGASP_STOP ||			// if signal at stop then put bottom signal to stop
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING )
+		{
+		state = SIGASP_APPROACH_3;
+		}
+		else
+		{
+		state = SIGASP_APPROACH_2;
+		}
+
+	}
+									// Then look at mian line route
+
+	else if ( !enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR )				// Block ahead not clear
+	{
+		state = SIGASP_STOP;
+	}
+		else
+	{		
+		next_state = next_sig_lr (SIGFN_NORMAL);		// Check next signal on main line
+
+		if ( next_state ==# SIGASP_STOP ||			// if signal at stop then put bottom signal to stop
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING )
+		{
+		state = SIGASP_APPROACH_1;
+		}
+		else 
+
+		state = SIGASP_CLEAR_2;					// if next signal clear set to CLEAR_2
+		
+	}	
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollight-05
+
+// NSW Light Coloured head over 2 Coloured Head (3 head spacing) (RG-YR) 
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+		else
+			state = SIGASP_APPROACH_2;
+			
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SCRIPT NSWCollight-06
+
+// NSW Light Coloured head over 2 Coloured Head (3 head spacing) (RG-R) 
+
+	extern float	block_state ();
+	extern float	route_set ();
+	extern float	next_sig_lr ();
+	extern float	def_draw_state ();
+	extern float	state;
+	extern float	draw_state;
+	extern float	enabled;
+	float			next_state;
+
+								// If required, show the appropriate 'stop' indication.
+	if (!enabled ||						// Not enabled/cleared to show natural state?
+		block_state() !=# BLOCK_CLEAR ||		// Block ahead not clear?
+		!route_set())					// Switch not set as per link?
+	{
+		state = SIGASP_STOP;
+	}
+								// Signal head is enabled and the block ahead is clear - 									// update based on state of next signal head.
+	else
+	{
+		next_state = next_sig_lr (SIGFN_NORMAL);
+
+		if (next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_STOP ||
+			next_state ==# SIGASP_RESTRICTING)
+		{
+			state = SIGASP_APPROACH_1;
+		}
+				
+	}
+
+// Get draw state
+	draw_state = def_draw_state (state);
+
+
+
+// End of File

@@ -1,11 +1,8 @@
-  File opened : sigscr_zigzag.dat
-  Close file 
-  sTree = 0xbe9b70
-  sTree->type = 3
-  sTree->opr.oper = 258
-  sTree->opr.nops = 1
+  Start program main
+     File opened : ./sigscr.dat
 
- PRINT TREE
+  PRINT TREE
+
   psn : opr :: 1 258 PROGRAM
     psn : opr :: 2 277 SCRIPT_LIST
       psn : opr :: 2 277 SCRIPT_LIST
@@ -47,55 +44,56 @@
                                                                               psn : opr :: 2 277 SCRIPT_LIST
                                                                                 psn : opr :: 2 277 SCRIPT_LIST
                                                                                   psn : opr :: 2 277 SCRIPT_LIST
-                                                                                    psn : opr :: 3 264 EXTERN
-                                                                                      psn : str :: name = NSW_SemLQSiding
-                                                                                      psn : opr :: 2 278 DEF_LIST
+                                                                                    psn : opr :: 2 277 SCRIPT_LIST
+                                                                                      psn : opr :: 3 264 SCRIPT
+                                                                                        psn : str :: name = NSW_SemLQSiding
                                                                                         psn : opr :: 2 278 DEF_LIST
                                                                                           psn : opr :: 2 278 DEF_LIST
                                                                                             psn : opr :: 2 278 DEF_LIST
                                                                                               psn : opr :: 2 278 DEF_LIST
+                                                                                                psn : opr :: 2 278 DEF_LIST
+                                                                                                  psn : opr :: 1 280 DEF_EFUN
+                                                                                                    psn : str :: name = block_state
+                                                                                                  psn : opr :: 1 280 DEF_EFUN
+                                                                                                    psn : str :: name = route_set
                                                                                                 psn : opr :: 1 280 DEF_EFUN
-                                                                                                  psn : str :: name = block_state
-                                                                                                psn : opr :: 1 280 DEF_EFUN
-                                                                                                  psn : str :: name = route_set
-                                                                                              psn : opr :: 1 280 DEF_EFUN
-                                                                                                psn : str :: name = def_draw_state
+                                                                                                  psn : str :: name = def_draw_state
+                                                                                              psn : opr :: 1 281 DEF_EVAR
+                                                                                                psn : str :: name = state
                                                                                             psn : opr :: 1 281 DEF_EVAR
-                                                                                              psn : str :: name = state
+                                                                                              psn : str :: name = draw_state
                                                                                           psn : opr :: 1 281 DEF_EVAR
-                                                                                            psn : str :: name = draw_state
-                                                                                        psn : opr :: 1 281 DEF_EVAR
-                                                                                          psn : str :: name = enabled
-                                                                                      psn : opr :: 2 279 STMT_LIST
-                                                                                        psn : opr :: 3 267 IF
-                                                                                          psn : opr :: 2 299 OR
+                                                                                            psn : str :: name = enabled
+                                                                                        psn : opr :: 2 279 STMT_LIST
+                                                                                          psn : opr :: 3 267 IF
                                                                                             psn : opr :: 2 299 OR
+                                                                                              psn : opr :: 2 299 OR
+                                                                                                psn : opr :: 1 301 NOT
+                                                                                                  psn : opr :: 1 260 VARIABLE
+                                                                                                    psn : str :: name = enabled
+                                                                                                psn : opr :: 2 314 INE
+                                                                                                  psn : opr :: 1 259 FUNCTION
+                                                                                                    psn : str :: name = block_state
+                                                                                                  psn : opr :: 1 260 VARIABLE
+                                                                                                    psn : str :: name = BLOCK_CLEAR
                                                                                               psn : opr :: 1 301 NOT
-                                                                                                psn : opr :: 1 260 VARIABLE
-                                                                                                  psn : str :: name = enabled
-                                                                                              psn : opr :: 2 314 sigscr_zigzag.dat
                                                                                                 psn : opr :: 1 259 FUNCTION
-                                                                                                  psn : str :: name = block_state
-                                                                                                psn : opr :: 1 260 VARIABLE
-                                                                                                  psn : str :: name = BLOCK_CLEAR
-                                                                                            psn : opr :: 1 301 NOT
-                                                                                              psn : opr :: 1 259 FUNCTION
-                                                                                                psn : str :: name = route_set
-                                                                                          psn : opr :: 2 284 ASSIGN
-                                                                                            psn : str :: name = state
-                                                                                            psn : opr :: 1 260 VARIABLE
-                                                                                              psn : str :: name = SIGASP_STOP
-                                                                                          psn : opr :: 2 284 ASSIGN
-                                                                                            psn : str :: name = state
-                                                                                            psn : opr :: 1 260 VARIABLE
-                                                                                              psn : str :: name = SIGASP_CLEAR_2
-                                                                                        psn : opr :: 2 284 ASSIGN
-                                                                                          psn : str :: name = draw_state
-                                                                                          psn : opr :: 2 259 FUNCTION
-                                                                                            psn : str :: name = def_draw_state
-                                                                                            psn : opr :: 1 260 VARIABLE
+                                                                                                  psn : str :: name = route_set
+                                                                                            psn : opr :: 2 284 ASSIGN
                                                                                               psn : str :: name = state
-                                                                                    psn : opr :: 3 264 EXTERN
+                                                                                              psn : opr :: 1 260 VARIABLE
+                                                                                                psn : str :: name = SIGASP_STOP
+                                                                                            psn : opr :: 2 284 ASSIGN
+                                                                                              psn : str :: name = state
+                                                                                              psn : opr :: 1 260 VARIABLE
+                                                                                                psn : str :: name = SIGASP_CLEAR_2
+                                                                                          psn : opr :: 2 284 ASSIGN
+                                                                                            psn : str :: name = draw_state
+                                                                                            psn : opr :: 2 259 FUNCTION
+                                                                                              psn : str :: name = def_draw_state
+                                                                                              psn : opr :: 1 260 VARIABLE
+                                                                                                psn : str :: name = state
+                                                                                    psn : opr :: 3 264 SCRIPT
                                                                                       psn : str :: name = NSW_SemLQLoop
                                                                                       psn : opr :: 2 278 DEF_LIST
                                                                                         psn : opr :: 2 278 DEF_LIST
@@ -121,7 +119,7 @@
                                                                                               psn : opr :: 1 301 NOT
                                                                                                 psn : opr :: 1 260 VARIABLE
                                                                                                   psn : str :: name = enabled
-                                                                                              psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                                              psn : opr :: 2 314 INE
                                                                                                 psn : opr :: 1 259 FUNCTION
                                                                                                   psn : str :: name = block_state
                                                                                                 psn : opr :: 1 260 VARIABLE
@@ -143,7 +141,7 @@
                                                                                             psn : str :: name = def_draw_state
                                                                                             psn : opr :: 1 260 VARIABLE
                                                                                               psn : str :: name = state
-                                                                                  psn : opr :: 3 264 EXTERN
+                                                                                  psn : opr :: 3 264 SCRIPT
                                                                                     psn : str :: name = NSW_SemLQDistFGL
                                                                                     psn : opr :: 2 278 DEF_LIST
                                                                                       psn : opr :: 2 278 DEF_LIST
@@ -181,7 +179,7 @@
                                                                                             psn : opr :: 1 301 NOT
                                                                                               psn : opr :: 1 259 FUNCTION
                                                                                                 psn : str :: name = route_set
-                                                                                            psn : opr :: 2 313 POW
+                                                                                            psn : opr :: 2 313 IEQ
                                                                                               psn : opr :: 1 260 VARIABLE
                                                                                                 psn : str :: name = next_state
                                                                                               psn : opr :: 1 260 VARIABLE
@@ -200,7 +198,7 @@
                                                                                           psn : str :: name = def_draw_state
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = state
-                                                                                psn : opr :: 3 264 EXTERN
+                                                                                psn : opr :: 3 264 SCRIPT
                                                                                   psn : str :: name = NSW_SemUQ2Pos_Distant
                                                                                   psn : opr :: 2 278 DEF_LIST
                                                                                     psn : opr :: 2 278 DEF_LIST
@@ -232,7 +230,7 @@
                                                                                           psn : opr :: 1 301 NOT
                                                                                             psn : opr :: 1 260 VARIABLE
                                                                                               psn : str :: name = enabled
-                                                                                          psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                                          psn : opr :: 2 314 INE
                                                                                             psn : opr :: 1 259 FUNCTION
                                                                                               psn : str :: name = block_state
                                                                                             psn : opr :: 1 260 VARIABLE
@@ -254,17 +252,17 @@
                                                                                         psn : opr :: 3 267 IF
                                                                                           psn : opr :: 2 299 OR
                                                                                             psn : opr :: 2 299 OR
-                                                                                              psn : opr :: 2 313 POW
+                                                                                              psn : opr :: 2 313 IEQ
                                                                                                 psn : opr :: 1 260 VARIABLE
                                                                                                   psn : str :: name = next_state
                                                                                                 psn : opr :: 1 260 VARIABLE
                                                                                                   psn : str :: name = SIGASP_STOP
-                                                                                              psn : opr :: 2 313 POW
+                                                                                              psn : opr :: 2 313 IEQ
                                                                                                 psn : opr :: 1 260 VARIABLE
                                                                                                   psn : str :: name = next_state
                                                                                                 psn : opr :: 1 260 VARIABLE
                                                                                                   psn : str :: name = SIGASP_STOP
-                                                                                            psn : opr :: 2 313 POW
+                                                                                            psn : opr :: 2 313 IEQ
                                                                                               psn : opr :: 1 260 VARIABLE
                                                                                                 psn : str :: name = next_state
                                                                                               psn : opr :: 1 260 VARIABLE
@@ -274,7 +272,7 @@
                                                                                             psn : opr :: 1 260 VARIABLE
                                                                                               psn : str :: name = SIGASP_APPROACH_1
                                                                                           psn : opr :: 3 267 IF
-                                                                                            psn : opr :: 2 313 POW
+                                                                                            psn : opr :: 2 313 IEQ
                                                                                               psn : opr :: 1 260 VARIABLE
                                                                                                 psn : str :: name = next_state
                                                                                               psn : opr :: 1 260 VARIABLE
@@ -293,7 +291,7 @@
                                                                                         psn : str :: name = def_draw_state
                                                                                         psn : opr :: 1 260 VARIABLE
                                                                                           psn : str :: name = state
-                                                                              psn : opr :: 3 264 EXTERN
+                                                                              psn : opr :: 3 264 SCRIPT
                                                                                 psn : str :: name = NSW_SemLQDwarf
                                                                                 psn : opr :: 2 278 DEF_LIST
                                                                                   psn : opr :: 2 278 DEF_LIST
@@ -319,7 +317,7 @@
                                                                                         psn : opr :: 1 301 NOT
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = enabled
-                                                                                        psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                                        psn : opr :: 2 314 INE
                                                                                           psn : opr :: 1 259 FUNCTION
                                                                                             psn : str :: name = block_state
                                                                                           psn : opr :: 1 260 VARIABLE
@@ -341,7 +339,7 @@
                                                                                       psn : str :: name = def_draw_state
                                                                                       psn : opr :: 1 260 VARIABLE
                                                                                         psn : str :: name = state
-                                                                            psn : opr :: 3 264 EXTERN
+                                                                            psn : opr :: 3 264 SCRIPT
                                                                               psn : str :: name = NSW_SemUQ3Pos_Distant
                                                                               psn : opr :: 2 278 DEF_LIST
                                                                                 psn : opr :: 2 278 DEF_LIST
@@ -373,7 +371,7 @@
                                                                                       psn : opr :: 1 301 NOT
                                                                                         psn : opr :: 1 260 VARIABLE
                                                                                           psn : str :: name = enabled
-                                                                                      psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                                      psn : opr :: 2 314 INE
                                                                                         psn : opr :: 1 259 FUNCTION
                                                                                           psn : str :: name = block_state
                                                                                         psn : opr :: 1 260 VARIABLE
@@ -395,17 +393,17 @@
                                                                                     psn : opr :: 3 267 IF
                                                                                       psn : opr :: 2 299 OR
                                                                                         psn : opr :: 2 299 OR
-                                                                                          psn : opr :: 2 313 POW
+                                                                                          psn : opr :: 2 313 IEQ
                                                                                             psn : opr :: 1 260 VARIABLE
                                                                                               psn : str :: name = next_state
                                                                                             psn : opr :: 1 260 VARIABLE
                                                                                               psn : str :: name = SIGASP_STOP
-                                                                                          psn : opr :: 2 313 POW
+                                                                                          psn : opr :: 2 313 IEQ
                                                                                             psn : opr :: 1 260 VARIABLE
                                                                                               psn : str :: name = next_state
                                                                                             psn : opr :: 1 260 VARIABLE
                                                                                               psn : str :: name = SIGASP_STOP
-                                                                                        psn : opr :: 2 313 POW
+                                                                                        psn : opr :: 2 313 IEQ
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = next_state
                                                                                           psn : opr :: 1 260 VARIABLE
@@ -415,7 +413,7 @@
                                                                                         psn : opr :: 1 260 VARIABLE
                                                                                           psn : str :: name = SIGASP_APPROACH_1
                                                                                       psn : opr :: 3 267 IF
-                                                                                        psn : opr :: 2 313 POW
+                                                                                        psn : opr :: 2 313 IEQ
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = next_state
                                                                                           psn : opr :: 1 260 VARIABLE
@@ -434,7 +432,7 @@
                                                                                     psn : str :: name = def_draw_state
                                                                                     psn : opr :: 1 260 VARIABLE
                                                                                       psn : str :: name = state
-                                                                          psn : opr :: 3 264 EXTERN
+                                                                          psn : opr :: 3 264 SCRIPT
                                                                             psn : str :: name = NSWcollight-19
                                                                             psn : opr :: 2 278 DEF_LIST
                                                                               psn : opr :: 2 278 DEF_LIST
@@ -466,7 +464,7 @@
                                                                                     psn : opr :: 1 301 NOT
                                                                                       psn : opr :: 1 260 VARIABLE
                                                                                         psn : str :: name = enabled
-                                                                                    psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                                    psn : opr :: 2 314 INE
                                                                                       psn : opr :: 1 259 FUNCTION
                                                                                         psn : str :: name = block_state
                                                                                       psn : opr :: 1 260 VARIABLE
@@ -488,17 +486,17 @@
                                                                                   psn : opr :: 3 267 IF
                                                                                     psn : opr :: 2 299 OR
                                                                                       psn : opr :: 2 299 OR
-                                                                                        psn : opr :: 2 313 POW
+                                                                                        psn : opr :: 2 313 IEQ
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = next_state
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = SIGASP_STOP
-                                                                                        psn : opr :: 2 313 POW
+                                                                                        psn : opr :: 2 313 IEQ
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = next_state
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = SIGASP_STOP
-                                                                                      psn : opr :: 2 313 POW
+                                                                                      psn : opr :: 2 313 IEQ
                                                                                         psn : opr :: 1 260 VARIABLE
                                                                                           psn : str :: name = next_state
                                                                                         psn : opr :: 1 260 VARIABLE
@@ -517,7 +515,7 @@
                                                                                   psn : str :: name = def_draw_state
                                                                                   psn : opr :: 1 260 VARIABLE
                                                                                     psn : str :: name = state
-                                                                        psn : opr :: 3 264 EXTERN
+                                                                        psn : opr :: 3 264 SCRIPT
                                                                           psn : str :: name = NSWcollight-18
                                                                           psn : opr :: 2 278 DEF_LIST
                                                                             psn : opr :: 2 278 DEF_LIST
@@ -552,7 +550,7 @@
                                                                                   psn : opr :: 1 301 NOT
                                                                                     psn : opr :: 1 260 VARIABLE
                                                                                       psn : str :: name = enabled
-                                                                                  psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                                  psn : opr :: 2 314 INE
                                                                                     psn : opr :: 1 259 FUNCTION
                                                                                       psn : str :: name = block_state
                                                                                     psn : opr :: 1 260 VARIABLE
@@ -571,17 +569,17 @@
                                                                                   psn : opr :: 3 267 IF
                                                                                     psn : opr :: 2 299 OR
                                                                                       psn : opr :: 2 299 OR
-                                                                                        psn : opr :: 2 313 POW
+                                                                                        psn : opr :: 2 313 IEQ
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = next_state
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = SIGASP_STOP
-                                                                                        psn : opr :: 2 313 POW
+                                                                                        psn : opr :: 2 313 IEQ
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = next_state
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = SIGASP_STOP
-                                                                                      psn : opr :: 2 313 POW
+                                                                                      psn : opr :: 2 313 IEQ
                                                                                         psn : opr :: 1 260 VARIABLE
                                                                                           psn : str :: name = next_state
                                                                                         psn : opr :: 1 260 VARIABLE
@@ -599,7 +597,7 @@
                                                                                   psn : opr :: 1 301 NOT
                                                                                     psn : opr :: 1 260 VARIABLE
                                                                                       psn : str :: name = enabled
-                                                                                  psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                                  psn : opr :: 2 314 INE
                                                                                     psn : opr :: 1 259 FUNCTION
                                                                                       psn : str :: name = block_state
                                                                                     psn : opr :: 1 260 VARIABLE
@@ -618,17 +616,17 @@
                                                                                   psn : opr :: 3 267 IF
                                                                                     psn : opr :: 2 299 OR
                                                                                       psn : opr :: 2 299 OR
-                                                                                        psn : opr :: 2 313 POW
+                                                                                        psn : opr :: 2 313 IEQ
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = next_state
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = SIGASP_STOP
-                                                                                        psn : opr :: 2 313 POW
+                                                                                        psn : opr :: 2 313 IEQ
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = next_state
                                                                                           psn : opr :: 1 260 VARIABLE
                                                                                             psn : str :: name = SIGASP_STOP
-                                                                                      psn : opr :: 2 313 POW
+                                                                                      psn : opr :: 2 313 IEQ
                                                                                         psn : opr :: 1 260 VARIABLE
                                                                                           psn : str :: name = next_state
                                                                                         psn : opr :: 1 260 VARIABLE
@@ -638,7 +636,7 @@
                                                                                       psn : opr :: 1 260 VARIABLE
                                                                                         psn : str :: name = SIGASP_APPROACH_1
                                                                                     psn : opr :: 3 267 IF
-                                                                                      psn : opr :: 2 313 POW
+                                                                                      psn : opr :: 2 313 IEQ
                                                                                         psn : opr :: 1 260 VARIABLE
                                                                                           psn : str :: name = next_state
                                                                                         psn : opr :: 1 260 VARIABLE
@@ -657,7 +655,7 @@
                                                                                 psn : str :: name = def_draw_state
                                                                                 psn : opr :: 1 260 VARIABLE
                                                                                   psn : str :: name = state
-                                                                      psn : opr :: 3 264 EXTERN
+                                                                      psn : opr :: 3 264 SCRIPT
                                                                         psn : str :: name = NSWcollight-17
                                                                         psn : opr :: 2 278 DEF_LIST
                                                                           psn : opr :: 2 278 DEF_LIST
@@ -689,7 +687,7 @@
                                                                                 psn : opr :: 1 301 NOT
                                                                                   psn : opr :: 1 260 VARIABLE
                                                                                     psn : str :: name = enabled
-                                                                                psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                                psn : opr :: 2 314 INE
                                                                                   psn : opr :: 1 259 FUNCTION
                                                                                     psn : str :: name = block_state
                                                                                   psn : opr :: 1 260 VARIABLE
@@ -711,17 +709,17 @@
                                                                               psn : opr :: 3 267 IF
                                                                                 psn : opr :: 2 299 OR
                                                                                   psn : opr :: 2 299 OR
-                                                                                    psn : opr :: 2 313 POW
+                                                                                    psn : opr :: 2 313 IEQ
                                                                                       psn : opr :: 1 260 VARIABLE
                                                                                         psn : str :: name = next_state
                                                                                       psn : opr :: 1 260 VARIABLE
                                                                                         psn : str :: name = SIGASP_STOP
-                                                                                    psn : opr :: 2 313 POW
+                                                                                    psn : opr :: 2 313 IEQ
                                                                                       psn : opr :: 1 260 VARIABLE
                                                                                         psn : str :: name = next_state
                                                                                       psn : opr :: 1 260 VARIABLE
                                                                                         psn : str :: name = SIGASP_STOP
-                                                                                  psn : opr :: 2 313 POW
+                                                                                  psn : opr :: 2 313 IEQ
                                                                                     psn : opr :: 1 260 VARIABLE
                                                                                       psn : str :: name = next_state
                                                                                     psn : opr :: 1 260 VARIABLE
@@ -731,7 +729,7 @@
                                                                                   psn : opr :: 1 260 VARIABLE
                                                                                     psn : str :: name = SIGASP_APPROACH_1
                                                                                 psn : opr :: 3 267 IF
-                                                                                  psn : opr :: 2 313 POW
+                                                                                  psn : opr :: 2 313 IEQ
                                                                                     psn : opr :: 1 260 VARIABLE
                                                                                       psn : str :: name = next_state
                                                                                     psn : opr :: 1 260 VARIABLE
@@ -750,7 +748,7 @@
                                                                               psn : str :: name = def_draw_state
                                                                               psn : opr :: 1 260 VARIABLE
                                                                                 psn : str :: name = state
-                                                                    psn : opr :: 3 264 EXTERN
+                                                                    psn : opr :: 3 264 SCRIPT
                                                                       psn : str :: name = NSWStopSign
                                                                       psn : opr :: 2 278 DEF_LIST
                                                                         psn : opr :: 2 278 DEF_LIST
@@ -786,7 +784,7 @@
                                                                             psn : str :: name = def_draw_state
                                                                             psn : opr :: 1 260 VARIABLE
                                                                               psn : str :: name = state
-                                                                  psn : opr :: 3 264 EXTERN
+                                                                  psn : opr :: 3 264 SCRIPT
                                                                     psn : str :: name = NSWBrakeLandmark
                                                                     psn : opr :: 2 278 DEF_LIST
                                                                       psn : opr :: 2 278 DEF_LIST
@@ -822,7 +820,7 @@
                                                                           psn : str :: name = def_draw_state
                                                                           psn : opr :: 1 260 VARIABLE
                                                                             psn : str :: name = state
-                                                                psn : opr :: 3 264 EXTERN
+                                                                psn : opr :: 3 264 SCRIPT
                                                                   psn : str :: name = NSWcollight-16
                                                                   psn : opr :: 2 278 DEF_LIST
                                                                     psn : opr :: 2 278 DEF_LIST
@@ -848,7 +846,7 @@
                                                                           psn : opr :: 1 301 NOT
                                                                             psn : opr :: 1 260 VARIABLE
                                                                               psn : str :: name = enabled
-                                                                          psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                          psn : opr :: 2 314 INE
                                                                             psn : opr :: 1 259 FUNCTION
                                                                               psn : str :: name = block_state
                                                                             psn : opr :: 1 260 VARIABLE
@@ -870,7 +868,7 @@
                                                                         psn : str :: name = def_draw_state
                                                                         psn : opr :: 1 260 VARIABLE
                                                                           psn : str :: name = state
-                                                              psn : opr :: 3 264 EXTERN
+                                                              psn : opr :: 3 264 SCRIPT
                                                                 psn : str :: name = NSWcollight-15
                                                                 psn : opr :: 2 278 DEF_LIST
                                                                   psn : opr :: 2 278 DEF_LIST
@@ -908,7 +906,7 @@
                                                                         psn : opr :: 1 301 NOT
                                                                           psn : opr :: 1 259 FUNCTION
                                                                             psn : str :: name = route_set
-                                                                        psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                        psn : opr :: 2 314 INE
                                                                           psn : opr :: 1 260 VARIABLE
                                                                             psn : str :: name = next_state
                                                                           psn : opr :: 1 260 VARIABLE
@@ -927,7 +925,7 @@
                                                                       psn : str :: name = def_draw_state
                                                                       psn : opr :: 1 260 VARIABLE
                                                                         psn : str :: name = state
-                                                            psn : opr :: 3 264 EXTERN
+                                                            psn : opr :: 3 264 SCRIPT
                                                               psn : str :: name = NSWcollight-14
                                                               psn : opr :: 2 278 DEF_LIST
                                                                 psn : opr :: 2 278 DEF_LIST
@@ -953,7 +951,7 @@
                                                                       psn : opr :: 1 301 NOT
                                                                         psn : opr :: 1 260 VARIABLE
                                                                           psn : str :: name = enabled
-                                                                      psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                      psn : opr :: 2 314 INE
                                                                         psn : opr :: 1 259 FUNCTION
                                                                           psn : str :: name = block_state
                                                                         psn : opr :: 1 260 VARIABLE
@@ -975,7 +973,7 @@
                                                                     psn : str :: name = def_draw_state
                                                                     psn : opr :: 1 260 VARIABLE
                                                                       psn : str :: name = state
-                                                          psn : opr :: 3 264 EXTERN
+                                                          psn : opr :: 3 264 SCRIPT
                                                             psn : str :: name = NSWCollight-gantry-03
                                                             psn : opr :: 2 278 DEF_LIST
                                                               psn : opr :: 2 278 DEF_LIST
@@ -1007,7 +1005,7 @@
                                                                     psn : opr :: 1 301 NOT
                                                                       psn : opr :: 1 260 VARIABLE
                                                                         psn : str :: name = enabled
-                                                                    psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                    psn : opr :: 2 314 INE
                                                                       psn : opr :: 1 259 FUNCTION
                                                                         psn : str :: name = block_state
                                                                       psn : opr :: 1 260 VARIABLE
@@ -1029,17 +1027,17 @@
                                                                   psn : opr :: 3 267 IF
                                                                     psn : opr :: 2 299 OR
                                                                       psn : opr :: 2 299 OR
-                                                                        psn : opr :: 2 313 POW
+                                                                        psn : opr :: 2 313 IEQ
                                                                           psn : opr :: 1 260 VARIABLE
                                                                             psn : str :: name = next_state
                                                                           psn : opr :: 1 260 VARIABLE
                                                                             psn : str :: name = SIGASP_STOP
-                                                                        psn : opr :: 2 313 POW
+                                                                        psn : opr :: 2 313 IEQ
                                                                           psn : opr :: 1 260 VARIABLE
                                                                             psn : str :: name = next_state
                                                                           psn : opr :: 1 260 VARIABLE
                                                                             psn : str :: name = SIGASP_STOP
-                                                                      psn : opr :: 2 313 POW
+                                                                      psn : opr :: 2 313 IEQ
                                                                         psn : opr :: 1 260 VARIABLE
                                                                           psn : str :: name = next_state
                                                                         psn : opr :: 1 260 VARIABLE
@@ -1049,7 +1047,7 @@
                                                                       psn : opr :: 1 260 VARIABLE
                                                                         psn : str :: name = SIGASP_APPROACH_1
                                                                     psn : opr :: 3 267 IF
-                                                                      psn : opr :: 2 313 POW
+                                                                      psn : opr :: 2 313 IEQ
                                                                         psn : opr :: 1 260 VARIABLE
                                                                           psn : str :: name = next_state
                                                                         psn : opr :: 1 260 VARIABLE
@@ -1068,7 +1066,7 @@
                                                                   psn : str :: name = def_draw_state
                                                                   psn : opr :: 1 260 VARIABLE
                                                                     psn : str :: name = state
-                                                        psn : opr :: 3 264 EXTERN
+                                                        psn : opr :: 3 264 SCRIPT
                                                           psn : str :: name = NSWcollight-13
                                                           psn : opr :: 2 278 DEF_LIST
                                                             psn : opr :: 2 278 DEF_LIST
@@ -1100,7 +1098,7 @@
                                                                   psn : opr :: 1 301 NOT
                                                                     psn : opr :: 1 260 VARIABLE
                                                                       psn : str :: name = enabled
-                                                                  psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                  psn : opr :: 2 314 INE
                                                                     psn : opr :: 1 259 FUNCTION
                                                                       psn : str :: name = block_state
                                                                     psn : opr :: 1 260 VARIABLE
@@ -1122,17 +1120,17 @@
                                                                 psn : opr :: 3 267 IF
                                                                   psn : opr :: 2 299 OR
                                                                     psn : opr :: 2 299 OR
-                                                                      psn : opr :: 2 313 POW
+                                                                      psn : opr :: 2 313 IEQ
                                                                         psn : opr :: 1 260 VARIABLE
                                                                           psn : str :: name = next_state
                                                                         psn : opr :: 1 260 VARIABLE
                                                                           psn : str :: name = SIGASP_STOP
-                                                                      psn : opr :: 2 313 POW
+                                                                      psn : opr :: 2 313 IEQ
                                                                         psn : opr :: 1 260 VARIABLE
                                                                           psn : str :: name = next_state
                                                                         psn : opr :: 1 260 VARIABLE
                                                                           psn : str :: name = SIGASP_STOP
-                                                                    psn : opr :: 2 313 POW
+                                                                    psn : opr :: 2 313 IEQ
                                                                       psn : opr :: 1 260 VARIABLE
                                                                         psn : str :: name = next_state
                                                                       psn : opr :: 1 260 VARIABLE
@@ -1142,7 +1140,7 @@
                                                                     psn : opr :: 1 260 VARIABLE
                                                                       psn : str :: name = SIGASP_APPROACH_1
                                                                   psn : opr :: 3 267 IF
-                                                                    psn : opr :: 2 313 POW
+                                                                    psn : opr :: 2 313 IEQ
                                                                       psn : opr :: 1 260 VARIABLE
                                                                         psn : str :: name = next_state
                                                                       psn : opr :: 1 260 VARIABLE
@@ -1161,7 +1159,7 @@
                                                                 psn : str :: name = def_draw_state
                                                                 psn : opr :: 1 260 VARIABLE
                                                                   psn : str :: name = state
-                                                      psn : opr :: 3 264 EXTERN
+                                                      psn : opr :: 3 264 SCRIPT
                                                         psn : str :: name = NSWcollight-12
                                                         psn : opr :: 2 278 DEF_LIST
                                                           psn : opr :: 2 278 DEF_LIST
@@ -1193,7 +1191,7 @@
                                                                 psn : opr :: 1 301 NOT
                                                                   psn : opr :: 1 260 VARIABLE
                                                                     psn : str :: name = enabled
-                                                                psn : opr :: 2 314 sigscr_zigzag.dat
+                                                                psn : opr :: 2 314 INE
                                                                   psn : opr :: 1 259 FUNCTION
                                                                     psn : str :: name = block_state
                                                                   psn : opr :: 1 260 VARIABLE
@@ -1215,17 +1213,17 @@
                                                               psn : opr :: 3 267 IF
                                                                 psn : opr :: 2 299 OR
                                                                   psn : opr :: 2 299 OR
-                                                                    psn : opr :: 2 313 POW
+                                                                    psn : opr :: 2 313 IEQ
                                                                       psn : opr :: 1 260 VARIABLE
                                                                         psn : str :: name = next_state
                                                                       psn : opr :: 1 260 VARIABLE
                                                                         psn : str :: name = SIGASP_STOP
-                                                                    psn : opr :: 2 313 POW
+                                                                    psn : opr :: 2 313 IEQ
                                                                       psn : opr :: 1 260 VARIABLE
                                                                         psn : str :: name = next_state
                                                                       psn : opr :: 1 260 VARIABLE
                                                                         psn : str :: name = SIGASP_STOP
-                                                                  psn : opr :: 2 313 POW
+                                                                  psn : opr :: 2 313 IEQ
                                                                     psn : opr :: 1 260 VARIABLE
                                                                       psn : str :: name = next_state
                                                                     psn : opr :: 1 260 VARIABLE
@@ -1235,7 +1233,7 @@
                                                                   psn : opr :: 1 260 VARIABLE
                                                                     psn : str :: name = SIGASP_APPROACH_1
                                                                 psn : opr :: 3 267 IF
-                                                                  psn : opr :: 2 313 POW
+                                                                  psn : opr :: 2 313 IEQ
                                                                     psn : opr :: 1 260 VARIABLE
                                                                       psn : str :: name = next_state
                                                                     psn : opr :: 1 260 VARIABLE
@@ -1254,7 +1252,7 @@
                                                               psn : str :: name = def_draw_state
                                                               psn : opr :: 1 260 VARIABLE
                                                                 psn : str :: name = state
-                                                    psn : opr :: 3 264 EXTERN
+                                                    psn : opr :: 3 264 SCRIPT
                                                       psn : str :: name = NSWCollight-11
                                                       psn : opr :: 2 278 DEF_LIST
                                                         psn : opr :: 2 278 DEF_LIST
@@ -1286,7 +1284,7 @@
                                                               psn : opr :: 1 301 NOT
                                                                 psn : opr :: 1 260 VARIABLE
                                                                   psn : str :: name = enabled
-                                                              psn : opr :: 2 314 sigscr_zigzag.dat
+                                                              psn : opr :: 2 314 INE
                                                                 psn : opr :: 1 259 FUNCTION
                                                                   psn : str :: name = block_state
                                                                 psn : opr :: 1 260 VARIABLE
@@ -1308,17 +1306,17 @@
                                                             psn : opr :: 3 267 IF
                                                               psn : opr :: 2 299 OR
                                                                 psn : opr :: 2 299 OR
-                                                                  psn : opr :: 2 313 POW
+                                                                  psn : opr :: 2 313 IEQ
                                                                     psn : opr :: 1 260 VARIABLE
                                                                       psn : str :: name = next_state
                                                                     psn : opr :: 1 260 VARIABLE
                                                                       psn : str :: name = SIGASP_STOP
-                                                                  psn : opr :: 2 313 POW
+                                                                  psn : opr :: 2 313 IEQ
                                                                     psn : opr :: 1 260 VARIABLE
                                                                       psn : str :: name = next_state
                                                                     psn : opr :: 1 260 VARIABLE
                                                                       psn : str :: name = SIGASP_STOP
-                                                                psn : opr :: 2 313 POW
+                                                                psn : opr :: 2 313 IEQ
                                                                   psn : opr :: 1 260 VARIABLE
                                                                     psn : str :: name = next_state
                                                                   psn : opr :: 1 260 VARIABLE
@@ -1337,7 +1335,7 @@
                                                             psn : str :: name = def_draw_state
                                                             psn : opr :: 1 260 VARIABLE
                                                               psn : str :: name = state
-                                                  psn : opr :: 3 264 EXTERN
+                                                  psn : opr :: 3 264 SCRIPT
                                                     psn : str :: name = NSWCollight-gantry-02
                                                     psn : opr :: 2 278 DEF_LIST
                                                       psn : opr :: 2 278 DEF_LIST
@@ -1369,7 +1367,7 @@
                                                             psn : opr :: 1 301 NOT
                                                               psn : opr :: 1 260 VARIABLE
                                                                 psn : str :: name = enabled
-                                                            psn : opr :: 2 314 sigscr_zigzag.dat
+                                                            psn : opr :: 2 314 INE
                                                               psn : opr :: 1 259 FUNCTION
                                                                 psn : str :: name = block_state
                                                               psn : opr :: 1 260 VARIABLE
@@ -1391,17 +1389,17 @@
                                                           psn : opr :: 3 267 IF
                                                             psn : opr :: 2 299 OR
                                                               psn : opr :: 2 299 OR
-                                                                psn : opr :: 2 313 POW
+                                                                psn : opr :: 2 313 IEQ
                                                                   psn : opr :: 1 260 VARIABLE
                                                                     psn : str :: name = next_state
                                                                   psn : opr :: 1 260 VARIABLE
                                                                     psn : str :: name = SIGASP_STOP
-                                                                psn : opr :: 2 313 POW
+                                                                psn : opr :: 2 313 IEQ
                                                                   psn : opr :: 1 260 VARIABLE
                                                                     psn : str :: name = next_state
                                                                   psn : opr :: 1 260 VARIABLE
                                                                     psn : str :: name = SIGASP_STOP
-                                                              psn : opr :: 2 313 POW
+                                                              psn : opr :: 2 313 IEQ
                                                                 psn : opr :: 1 260 VARIABLE
                                                                   psn : str :: name = next_state
                                                                 psn : opr :: 1 260 VARIABLE
@@ -1411,7 +1409,7 @@
                                                               psn : opr :: 1 260 VARIABLE
                                                                 psn : str :: name = SIGASP_APPROACH_1
                                                             psn : opr :: 3 267 IF
-                                                              psn : opr :: 2 313 POW
+                                                              psn : opr :: 2 313 IEQ
                                                                 psn : opr :: 1 260 VARIABLE
                                                                   psn : str :: name = next_state
                                                                 psn : opr :: 1 260 VARIABLE
@@ -1430,7 +1428,7 @@
                                                           psn : str :: name = def_draw_state
                                                           psn : opr :: 1 260 VARIABLE
                                                             psn : str :: name = state
-                                                psn : opr :: 3 264 EXTERN
+                                                psn : opr :: 3 264 SCRIPT
                                                   psn : str :: name = NSWCollight-10
                                                   psn : opr :: 2 278 DEF_LIST
                                                     psn : opr :: 2 278 DEF_LIST
@@ -1462,7 +1460,7 @@
                                                           psn : opr :: 1 301 NOT
                                                             psn : opr :: 1 260 VARIABLE
                                                               psn : str :: name = enabled
-                                                          psn : opr :: 2 314 sigscr_zigzag.dat
+                                                          psn : opr :: 2 314 INE
                                                             psn : opr :: 1 259 FUNCTION
                                                               psn : str :: name = block_state
                                                             psn : opr :: 1 260 VARIABLE
@@ -1484,17 +1482,17 @@
                                                         psn : opr :: 3 267 IF
                                                           psn : opr :: 2 299 OR
                                                             psn : opr :: 2 299 OR
-                                                              psn : opr :: 2 313 POW
+                                                              psn : opr :: 2 313 IEQ
                                                                 psn : opr :: 1 260 VARIABLE
                                                                   psn : str :: name = next_state
                                                                 psn : opr :: 1 260 VARIABLE
                                                                   psn : str :: name = SIGASP_STOP
-                                                              psn : opr :: 2 313 POW
+                                                              psn : opr :: 2 313 IEQ
                                                                 psn : opr :: 1 260 VARIABLE
                                                                   psn : str :: name = next_state
                                                                 psn : opr :: 1 260 VARIABLE
                                                                   psn : str :: name = SIGASP_STOP
-                                                            psn : opr :: 2 313 POW
+                                                            psn : opr :: 2 313 IEQ
                                                               psn : opr :: 1 260 VARIABLE
                                                                 psn : str :: name = next_state
                                                               psn : opr :: 1 260 VARIABLE
@@ -1513,7 +1511,7 @@
                                                         psn : str :: name = def_draw_state
                                                         psn : opr :: 1 260 VARIABLE
                                                           psn : str :: name = state
-                                              psn : opr :: 3 264 EXTERN
+                                              psn : opr :: 3 264 SCRIPT
                                                 psn : str :: name = NSWCollight-09
                                                 psn : opr :: 2 278 DEF_LIST
                                                   psn : opr :: 2 278 DEF_LIST
@@ -1545,7 +1543,7 @@
                                                         psn : opr :: 1 301 NOT
                                                           psn : opr :: 1 260 VARIABLE
                                                             psn : str :: name = enabled
-                                                        psn : opr :: 2 314 sigscr_zigzag.dat
+                                                        psn : opr :: 2 314 INE
                                                           psn : opr :: 1 259 FUNCTION
                                                             psn : str :: name = block_state
                                                           psn : opr :: 1 260 VARIABLE
@@ -1567,17 +1565,17 @@
                                                       psn : opr :: 3 267 IF
                                                         psn : opr :: 2 299 OR
                                                           psn : opr :: 2 299 OR
-                                                            psn : opr :: 2 313 POW
+                                                            psn : opr :: 2 313 IEQ
                                                               psn : opr :: 1 260 VARIABLE
                                                                 psn : str :: name = next_state
                                                               psn : opr :: 1 260 VARIABLE
                                                                 psn : str :: name = SIGASP_STOP
-                                                            psn : opr :: 2 313 POW
+                                                            psn : opr :: 2 313 IEQ
                                                               psn : opr :: 1 260 VARIABLE
                                                                 psn : str :: name = next_state
                                                               psn : opr :: 1 260 VARIABLE
                                                                 psn : str :: name = SIGASP_STOP
-                                                          psn : opr :: 2 313 POW
+                                                          psn : opr :: 2 313 IEQ
                                                             psn : opr :: 1 260 VARIABLE
                                                               psn : str :: name = next_state
                                                             psn : opr :: 1 260 VARIABLE
@@ -1596,7 +1594,7 @@
                                                       psn : str :: name = def_draw_state
                                                       psn : opr :: 1 260 VARIABLE
                                                         psn : str :: name = state
-                                            psn : opr :: 3 264 EXTERN
+                                            psn : opr :: 3 264 SCRIPT
                                               psn : str :: name = NSWCollightsig-08
                                               psn : opr :: 2 278 DEF_LIST
                                                 psn : opr :: 2 278 DEF_LIST
@@ -1628,7 +1626,7 @@
                                                       psn : opr :: 1 301 NOT
                                                         psn : opr :: 1 260 VARIABLE
                                                           psn : str :: name = enabled
-                                                      psn : opr :: 2 314 sigscr_zigzag.dat
+                                                      psn : opr :: 2 314 INE
                                                         psn : opr :: 1 259 FUNCTION
                                                           psn : str :: name = block_state
                                                         psn : opr :: 1 260 VARIABLE
@@ -1650,17 +1648,17 @@
                                                     psn : opr :: 3 267 IF
                                                       psn : opr :: 2 299 OR
                                                         psn : opr :: 2 299 OR
-                                                          psn : opr :: 2 313 POW
+                                                          psn : opr :: 2 313 IEQ
                                                             psn : opr :: 1 260 VARIABLE
                                                               psn : str :: name = next_state
                                                             psn : opr :: 1 260 VARIABLE
                                                               psn : str :: name = SIGASP_STOP
-                                                          psn : opr :: 2 313 POW
+                                                          psn : opr :: 2 313 IEQ
                                                             psn : opr :: 1 260 VARIABLE
                                                               psn : str :: name = next_state
                                                             psn : opr :: 1 260 VARIABLE
                                                               psn : str :: name = SIGASP_STOP
-                                                        psn : opr :: 2 313 POW
+                                                        psn : opr :: 2 313 IEQ
                                                           psn : opr :: 1 260 VARIABLE
                                                             psn : str :: name = next_state
                                                           psn : opr :: 1 260 VARIABLE
@@ -1670,7 +1668,7 @@
                                                         psn : opr :: 1 260 VARIABLE
                                                           psn : str :: name = SIGASP_APPROACH_1
                                                       psn : opr :: 3 267 IF
-                                                        psn : opr :: 2 313 POW
+                                                        psn : opr :: 2 313 IEQ
                                                           psn : opr :: 1 260 VARIABLE
                                                             psn : str :: name = next_state
                                                           psn : opr :: 1 260 VARIABLE
@@ -1689,7 +1687,7 @@
                                                     psn : str :: name = def_draw_state
                                                     psn : opr :: 1 260 VARIABLE
                                                       psn : str :: name = state
-                                          psn : opr :: 3 264 EXTERN
+                                          psn : opr :: 3 264 SCRIPT
                                             psn : str :: name = NSWCollightsig-07
                                             psn : opr :: 2 278 DEF_LIST
                                               psn : opr :: 2 278 DEF_LIST
@@ -1730,17 +1728,17 @@
                                                           psn : opr :: 1 301 NOT
                                                             psn : opr :: 1 260 VARIABLE
                                                               psn : str :: name = enabled
-                                                        psn : opr :: 2 313 POW
+                                                        psn : opr :: 2 313 IEQ
                                                           psn : opr :: 1 260 VARIABLE
                                                             psn : str :: name = next_state
                                                           psn : opr :: 1 260 VARIABLE
                                                             psn : str :: name = SIGASP_STOP
-                                                      psn : opr :: 2 313 POW
+                                                      psn : opr :: 2 313 IEQ
                                                         psn : opr :: 1 260 VARIABLE
                                                           psn : str :: name = next_state
                                                         psn : opr :: 1 260 VARIABLE
                                                           psn : str :: name = SIGASP_STOP
-                                                    psn : opr :: 2 313 POW
+                                                    psn : opr :: 2 313 IEQ
                                                       psn : opr :: 1 260 VARIABLE
                                                         psn : str :: name = next_state
                                                       psn : opr :: 1 260 VARIABLE
@@ -1759,7 +1757,7 @@
                                                   psn : str :: name = def_draw_state
                                                   psn : opr :: 1 260 VARIABLE
                                                     psn : str :: name = state
-                                        psn : opr :: 3 264 EXTERN
+                                        psn : opr :: 3 264 SCRIPT
                                           psn : str :: name = CTNPointIndication-light
                                           psn : opr :: 2 278 DEF_LIST
                                             psn : opr :: 2 278 DEF_LIST
@@ -1785,7 +1783,7 @@
                                                   psn : opr :: 1 301 NOT
                                                     psn : opr :: 1 260 VARIABLE
                                                       psn : str :: name = enabled
-                                                  psn : opr :: 2 314 sigscr_zigzag.dat
+                                                  psn : opr :: 2 314 INE
                                                     psn : opr :: 1 259 FUNCTION
                                                       psn : str :: name = block_state
                                                     psn : opr :: 1 260 VARIABLE
@@ -1807,7 +1805,7 @@
                                                 psn : str :: name = def_draw_state
                                                 psn : opr :: 1 260 VARIABLE
                                                   psn : str :: name = state
-                                      psn : opr :: 3 264 EXTERN
+                                      psn : opr :: 3 264 SCRIPT
                                         psn : str :: name = CTNPointIndication-head
                                         psn : opr :: 2 278 DEF_LIST
                                           psn : opr :: 2 278 DEF_LIST
@@ -1833,7 +1831,7 @@
                                                 psn : opr :: 1 301 NOT
                                                   psn : opr :: 1 260 VARIABLE
                                                     psn : str :: name = enabled
-                                                psn : opr :: 2 314 sigscr_zigzag.dat
+                                                psn : opr :: 2 314 INE
                                                   psn : opr :: 1 259 FUNCTION
                                                     psn : str :: name = block_state
                                                   psn : opr :: 1 260 VARIABLE
@@ -1855,7 +1853,7 @@
                                               psn : str :: name = def_draw_state
                                               psn : opr :: 1 260 VARIABLE
                                                 psn : str :: name = state
-                                    psn : opr :: 3 264 EXTERN
+                                    psn : opr :: 3 264 SCRIPT
                                       psn : str :: name = NSWCollight2x3Junct
                                       psn : opr :: 2 278 DEF_LIST
                                         psn : opr :: 2 278 DEF_LIST
@@ -1890,7 +1888,7 @@
                                               psn : opr :: 1 301 NOT
                                                 psn : opr :: 1 260 VARIABLE
                                                   psn : str :: name = enabled
-                                              psn : opr :: 2 314 sigscr_zigzag.dat
+                                              psn : opr :: 2 314 INE
                                                 psn : opr :: 1 259 FUNCTION
                                                   psn : str :: name = block_state
                                                 psn : opr :: 1 260 VARIABLE
@@ -1909,17 +1907,17 @@
                                               psn : opr :: 3 267 IF
                                                 psn : opr :: 2 299 OR
                                                   psn : opr :: 2 299 OR
-                                                    psn : opr :: 2 313 POW
+                                                    psn : opr :: 2 313 IEQ
                                                       psn : opr :: 1 260 VARIABLE
                                                         psn : str :: name = next_state
                                                       psn : opr :: 1 260 VARIABLE
                                                         psn : str :: name = SIGASP_STOP
-                                                    psn : opr :: 2 313 POW
+                                                    psn : opr :: 2 313 IEQ
                                                       psn : opr :: 1 260 VARIABLE
                                                         psn : str :: name = next_state
                                                       psn : opr :: 1 260 VARIABLE
                                                         psn : str :: name = SIGASP_STOP
-                                                  psn : opr :: 2 313 POW
+                                                  psn : opr :: 2 313 IEQ
                                                     psn : opr :: 1 260 VARIABLE
                                                       psn : str :: name = next_state
                                                     psn : opr :: 1 260 VARIABLE
@@ -1937,7 +1935,7 @@
                                               psn : opr :: 1 301 NOT
                                                 psn : opr :: 1 260 VARIABLE
                                                   psn : str :: name = enabled
-                                              psn : opr :: 2 314 sigscr_zigzag.dat
+                                              psn : opr :: 2 314 INE
                                                 psn : opr :: 1 259 FUNCTION
                                                   psn : str :: name = block_state
                                                 psn : opr :: 1 260 VARIABLE
@@ -1956,17 +1954,17 @@
                                               psn : opr :: 3 267 IF
                                                 psn : opr :: 2 299 OR
                                                   psn : opr :: 2 299 OR
-                                                    psn : opr :: 2 313 POW
+                                                    psn : opr :: 2 313 IEQ
                                                       psn : opr :: 1 260 VARIABLE
                                                         psn : str :: name = next_state
                                                       psn : opr :: 1 260 VARIABLE
                                                         psn : str :: name = SIGASP_STOP
-                                                    psn : opr :: 2 313 POW
+                                                    psn : opr :: 2 313 IEQ
                                                       psn : opr :: 1 260 VARIABLE
                                                         psn : str :: name = next_state
                                                       psn : opr :: 1 260 VARIABLE
                                                         psn : str :: name = SIGASP_STOP
-                                                  psn : opr :: 2 313 POW
+                                                  psn : opr :: 2 313 IEQ
                                                     psn : opr :: 1 260 VARIABLE
                                                       psn : str :: name = next_state
                                                     psn : opr :: 1 260 VARIABLE
@@ -1976,7 +1974,7 @@
                                                   psn : opr :: 1 260 VARIABLE
                                                     psn : str :: name = SIGASP_APPROACH_1
                                                 psn : opr :: 3 267 IF
-                                                  psn : opr :: 2 313 POW
+                                                  psn : opr :: 2 313 IEQ
                                                     psn : opr :: 1 260 VARIABLE
                                                       psn : str :: name = next_state
                                                     psn : opr :: 1 260 VARIABLE
@@ -1995,7 +1993,7 @@
                                             psn : str :: name = def_draw_state
                                             psn : opr :: 1 260 VARIABLE
                                               psn : str :: name = state
-                                  psn : opr :: 3 264 EXTERN
+                                  psn : opr :: 3 264 SCRIPT
                                     psn : str :: name = NSWLandmark
                                     psn : opr :: 2 278 DEF_LIST
                                       psn : opr :: 2 278 DEF_LIST
@@ -2016,7 +2014,7 @@
                                           psn : str :: name = def_draw_state
                                           psn : opr :: 1 260 VARIABLE
                                             psn : str :: name = state
-                                psn : opr :: 3 264 EXTERN
+                                psn : opr :: 3 264 SCRIPT
                                   psn : str :: name = NSWCollightsig-03
                                   psn : opr :: 2 278 DEF_LIST
                                     psn : opr :: 2 278 DEF_LIST
@@ -2048,7 +2046,7 @@
                                           psn : opr :: 1 301 NOT
                                             psn : opr :: 1 260 VARIABLE
                                               psn : str :: name = enabled
-                                          psn : opr :: 2 314 sigscr_zigzag.dat
+                                          psn : opr :: 2 314 INE
                                             psn : opr :: 1 259 FUNCTION
                                               psn : str :: name = block_state
                                             psn : opr :: 1 260 VARIABLE
@@ -2070,17 +2068,17 @@
                                         psn : opr :: 3 267 IF
                                           psn : opr :: 2 299 OR
                                             psn : opr :: 2 299 OR
-                                              psn : opr :: 2 313 POW
+                                              psn : opr :: 2 313 IEQ
                                                 psn : opr :: 1 260 VARIABLE
                                                   psn : str :: name = next_state
                                                 psn : opr :: 1 260 VARIABLE
                                                   psn : str :: name = SIGASP_STOP
-                                              psn : opr :: 2 313 POW
+                                              psn : opr :: 2 313 IEQ
                                                 psn : opr :: 1 260 VARIABLE
                                                   psn : str :: name = next_state
                                                 psn : opr :: 1 260 VARIABLE
                                                   psn : str :: name = SIGASP_STOP
-                                            psn : opr :: 2 313 POW
+                                            psn : opr :: 2 313 IEQ
                                               psn : opr :: 1 260 VARIABLE
                                                 psn : str :: name = next_state
                                               psn : opr :: 1 260 VARIABLE
@@ -2090,7 +2088,7 @@
                                             psn : opr :: 1 260 VARIABLE
                                               psn : str :: name = SIGASP_APPROACH_1
                                           psn : opr :: 3 267 IF
-                                            psn : opr :: 2 313 POW
+                                            psn : opr :: 2 313 IEQ
                                               psn : opr :: 1 260 VARIABLE
                                                 psn : str :: name = next_state
                                               psn : opr :: 1 260 VARIABLE
@@ -2109,7 +2107,7 @@
                                         psn : str :: name = def_draw_state
                                         psn : opr :: 1 260 VARIABLE
                                           psn : str :: name = state
-                              psn : opr :: 3 264 EXTERN
+                              psn : opr :: 3 264 SCRIPT
                                 psn : str :: name = NSWCollightsig-04
                                 psn : opr :: 2 278 DEF_LIST
                                   psn : opr :: 2 278 DEF_LIST
@@ -2141,7 +2139,7 @@
                                         psn : opr :: 1 301 NOT
                                           psn : opr :: 1 260 VARIABLE
                                             psn : str :: name = enabled
-                                        psn : opr :: 2 314 sigscr_zigzag.dat
+                                        psn : opr :: 2 314 INE
                                           psn : opr :: 1 259 FUNCTION
                                             psn : str :: name = block_state
                                           psn : opr :: 1 260 VARIABLE
@@ -2163,17 +2161,17 @@
                                       psn : opr :: 3 267 IF
                                         psn : opr :: 2 299 OR
                                           psn : opr :: 2 299 OR
-                                            psn : opr :: 2 313 POW
+                                            psn : opr :: 2 313 IEQ
                                               psn : opr :: 1 260 VARIABLE
                                                 psn : str :: name = next_state
                                               psn : opr :: 1 260 VARIABLE
                                                 psn : str :: name = SIGASP_STOP
-                                            psn : opr :: 2 313 POW
+                                            psn : opr :: 2 313 IEQ
                                               psn : opr :: 1 260 VARIABLE
                                                 psn : str :: name = next_state
                                               psn : opr :: 1 260 VARIABLE
                                                 psn : str :: name = SIGASP_STOP
-                                          psn : opr :: 2 313 POW
+                                          psn : opr :: 2 313 IEQ
                                             psn : opr :: 1 260 VARIABLE
                                               psn : str :: name = next_state
                                             psn : opr :: 1 260 VARIABLE
@@ -2192,7 +2190,7 @@
                                       psn : str :: name = def_draw_state
                                       psn : opr :: 1 260 VARIABLE
                                         psn : str :: name = state
-                            psn : opr :: 3 264 EXTERN
+                            psn : opr :: 3 264 SCRIPT
                               psn : str :: name = NSW_SemLQHome
                               psn : opr :: 2 278 DEF_LIST
                                 psn : opr :: 2 278 DEF_LIST
@@ -2218,7 +2216,7 @@
                                       psn : opr :: 1 301 NOT
                                         psn : opr :: 1 260 VARIABLE
                                           psn : str :: name = enabled
-                                      psn : opr :: 2 314 sigscr_zigzag.dat
+                                      psn : opr :: 2 314 INE
                                         psn : opr :: 1 259 FUNCTION
                                           psn : str :: name = block_state
                                         psn : opr :: 1 260 VARIABLE
@@ -2240,7 +2238,7 @@
                                     psn : str :: name = def_draw_state
                                     psn : opr :: 1 260 VARIABLE
                                       psn : str :: name = state
-                          psn : opr :: 3 264 EXTERN
+                          psn : opr :: 3 264 SCRIPT
                             psn : str :: name = NSW_SemLQHomeBranch
                             psn : opr :: 2 278 DEF_LIST
                               psn : opr :: 2 278 DEF_LIST
@@ -2266,7 +2264,7 @@
                                     psn : opr :: 1 301 NOT
                                       psn : opr :: 1 260 VARIABLE
                                         psn : str :: name = enabled
-                                    psn : opr :: 2 314 sigscr_zigzag.dat
+                                    psn : opr :: 2 314 INE
                                       psn : opr :: 1 259 FUNCTION
                                         psn : str :: name = block_state
                                       psn : opr :: 1 260 VARIABLE
@@ -2288,7 +2286,7 @@
                                   psn : str :: name = def_draw_state
                                   psn : opr :: 1 260 VARIABLE
                                     psn : str :: name = state
-                        psn : opr :: 3 264 EXTERN
+                        psn : opr :: 3 264 SCRIPT
                           psn : str :: name = NSW_SemLQDist
                           psn : opr :: 2 278 DEF_LIST
                             psn : opr :: 2 278 DEF_LIST
@@ -2326,7 +2324,7 @@
                                   psn : opr :: 1 301 NOT
                                     psn : opr :: 1 259 FUNCTION
                                       psn : str :: name = route_set
-                                  psn : opr :: 2 313 POW
+                                  psn : opr :: 2 313 IEQ
                                     psn : opr :: 1 260 VARIABLE
                                       psn : str :: name = next_state
                                     psn : opr :: 1 260 VARIABLE
@@ -2345,7 +2343,7 @@
                                 psn : str :: name = def_draw_state
                                 psn : opr :: 1 260 VARIABLE
                                   psn : str :: name = state
-                      psn : opr :: 3 264 EXTERN
+                      psn : opr :: 3 264 SCRIPT
                         psn : str :: name = NSW_SemLQDistComb
                         psn : opr :: 2 278 DEF_LIST
                           psn : opr :: 2 278 DEF_LIST
@@ -2383,7 +2381,7 @@
                                 psn : opr :: 1 301 NOT
                                   psn : opr :: 1 259 FUNCTION
                                     psn : str :: name = route_set
-                                psn : opr :: 2 313 POW
+                                psn : opr :: 2 313 IEQ
                                   psn : opr :: 1 260 VARIABLE
                                     psn : str :: name = next_state
                                   psn : opr :: 1 260 VARIABLE
@@ -2402,7 +2400,7 @@
                               psn : str :: name = def_draw_state
                               psn : opr :: 1 260 VARIABLE
                                 psn : str :: name = state
-                    psn : opr :: 3 264 EXTERN
+                    psn : opr :: 3 264 SCRIPT
                       psn : str :: name = NSW_SemUQ3Pos_Home
                       psn : opr :: 2 278 DEF_LIST
                         psn : opr :: 2 278 DEF_LIST
@@ -2434,7 +2432,7 @@
                               psn : opr :: 1 301 NOT
                                 psn : opr :: 1 260 VARIABLE
                                   psn : str :: name = enabled
-                              psn : opr :: 2 314 sigscr_zigzag.dat
+                              psn : opr :: 2 314 INE
                                 psn : opr :: 1 259 FUNCTION
                                   psn : str :: name = block_state
                                 psn : opr :: 1 260 VARIABLE
@@ -2456,17 +2454,17 @@
                             psn : opr :: 3 267 IF
                               psn : opr :: 2 299 OR
                                 psn : opr :: 2 299 OR
-                                  psn : opr :: 2 313 POW
+                                  psn : opr :: 2 313 IEQ
                                     psn : opr :: 1 260 VARIABLE
                                       psn : str :: name = next_state
                                     psn : opr :: 1 260 VARIABLE
                                       psn : str :: name = SIGASP_STOP
-                                  psn : opr :: 2 313 POW
+                                  psn : opr :: 2 313 IEQ
                                     psn : opr :: 1 260 VARIABLE
                                       psn : str :: name = next_state
                                     psn : opr :: 1 260 VARIABLE
                                       psn : str :: name = SIGASP_STOP
-                                psn : opr :: 2 313 POW
+                                psn : opr :: 2 313 IEQ
                                   psn : opr :: 1 260 VARIABLE
                                     psn : str :: name = next_state
                                   psn : opr :: 1 260 VARIABLE
@@ -2476,7 +2474,7 @@
                                 psn : opr :: 1 260 VARIABLE
                                   psn : str :: name = SIGASP_APPROACH_1
                               psn : opr :: 3 267 IF
-                                psn : opr :: 2 313 POW
+                                psn : opr :: 2 313 IEQ
                                   psn : opr :: 1 260 VARIABLE
                                     psn : str :: name = next_state
                                   psn : opr :: 1 260 VARIABLE
@@ -2495,7 +2493,7 @@
                             psn : str :: name = def_draw_state
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = state
-                  psn : opr :: 3 264 EXTERN
+                  psn : opr :: 3 264 SCRIPT
                     psn : str :: name = CTNShunt1
                     psn : opr :: 2 278 DEF_LIST
                       psn : opr :: 2 278 DEF_LIST
@@ -2521,7 +2519,7 @@
                             psn : opr :: 1 301 NOT
                               psn : opr :: 1 260 VARIABLE
                                 psn : str :: name = enabled
-                            psn : opr :: 2 314 sigscr_zigzag.dat
+                            psn : opr :: 2 314 INE
                               psn : opr :: 1 259 FUNCTION
                                 psn : str :: name = block_state
                               psn : opr :: 1 260 VARIABLE
@@ -2543,7 +2541,7 @@
                           psn : str :: name = def_draw_state
                           psn : opr :: 1 260 VARIABLE
                             psn : str :: name = state
-                psn : opr :: 3 264 EXTERN
+                psn : opr :: 3 264 SCRIPT
                   psn : str :: name = CTNShunt2
                   psn : opr :: 2 278 DEF_LIST
                     psn : opr :: 2 278 DEF_LIST
@@ -2569,7 +2567,7 @@
                           psn : opr :: 1 301 NOT
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = enabled
-                          psn : opr :: 2 314 sigscr_zigzag.dat
+                          psn : opr :: 2 314 INE
                             psn : opr :: 1 259 FUNCTION
                               psn : str :: name = block_state
                             psn : opr :: 1 260 VARIABLE
@@ -2591,7 +2589,7 @@
                         psn : str :: name = def_draw_state
                         psn : opr :: 1 260 VARIABLE
                           psn : str :: name = state
-              psn : opr :: 3 264 EXTERN
+              psn : opr :: 3 264 SCRIPT
                 psn : str :: name = NSWCollight1x2+1x2gantry
                 psn : opr :: 2 278 DEF_LIST
                   psn : opr :: 2 278 DEF_LIST
@@ -2623,7 +2621,7 @@
                         psn : opr :: 1 301 NOT
                           psn : opr :: 1 260 VARIABLE
                             psn : str :: name = enabled
-                        psn : opr :: 2 314 sigscr_zigzag.dat
+                        psn : opr :: 2 314 INE
                           psn : opr :: 1 259 FUNCTION
                             psn : str :: name = block_state
                           psn : opr :: 1 260 VARIABLE
@@ -2645,17 +2643,17 @@
                       psn : opr :: 3 267 IF
                         psn : opr :: 2 299 OR
                           psn : opr :: 2 299 OR
-                            psn : opr :: 2 313 POW
+                            psn : opr :: 2 313 IEQ
                               psn : opr :: 1 260 VARIABLE
                                 psn : str :: name = next_state
                               psn : opr :: 1 260 VARIABLE
                                 psn : str :: name = SIGASP_STOP
-                            psn : opr :: 2 313 POW
+                            psn : opr :: 2 313 IEQ
                               psn : opr :: 1 260 VARIABLE
                                 psn : str :: name = next_state
                               psn : opr :: 1 260 VARIABLE
                                 psn : str :: name = SIGASP_STOP
-                          psn : opr :: 2 313 POW
+                          psn : opr :: 2 313 IEQ
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = next_state
                             psn : opr :: 1 260 VARIABLE
@@ -2674,7 +2672,7 @@
                       psn : str :: name = def_draw_state
                       psn : opr :: 1 260 VARIABLE
                         psn : str :: name = state
-            psn : opr :: 3 264 EXTERN
+            psn : opr :: 3 264 SCRIPT
               psn : str :: name = NSWCollight-gantry-01
               psn : opr :: 2 278 DEF_LIST
                 psn : opr :: 2 278 DEF_LIST
@@ -2706,7 +2704,7 @@
                       psn : opr :: 1 301 NOT
                         psn : opr :: 1 260 VARIABLE
                           psn : str :: name = enabled
-                      psn : opr :: 2 314 sigscr_zigzag.dat
+                      psn : opr :: 2 314 INE
                         psn : opr :: 1 259 FUNCTION
                           psn : str :: name = block_state
                         psn : opr :: 1 260 VARIABLE
@@ -2728,17 +2726,17 @@
                     psn : opr :: 3 267 IF
                       psn : opr :: 2 299 OR
                         psn : opr :: 2 299 OR
-                          psn : opr :: 2 313 POW
+                          psn : opr :: 2 313 IEQ
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = next_state
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = SIGASP_STOP
-                          psn : opr :: 2 313 POW
+                          psn : opr :: 2 313 IEQ
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = next_state
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = SIGASP_STOP
-                        psn : opr :: 2 313 POW
+                        psn : opr :: 2 313 IEQ
                           psn : opr :: 1 260 VARIABLE
                             psn : str :: name = next_state
                           psn : opr :: 1 260 VARIABLE
@@ -2757,7 +2755,7 @@
                     psn : str :: name = def_draw_state
                     psn : opr :: 1 260 VARIABLE
                       psn : str :: name = state
-          psn : opr :: 3 264 EXTERN
+          psn : opr :: 3 264 SCRIPT
             psn : str :: name = NSWCollight-01Junct
             psn : opr :: 2 278 DEF_LIST
               psn : opr :: 2 278 DEF_LIST
@@ -2792,7 +2790,7 @@
                     psn : opr :: 1 301 NOT
                       psn : opr :: 1 260 VARIABLE
                         psn : str :: name = enabled
-                    psn : opr :: 2 314 sigscr_zigzag.dat
+                    psn : opr :: 2 314 INE
                       psn : opr :: 1 259 FUNCTION
                         psn : str :: name = block_state
                       psn : opr :: 1 260 VARIABLE
@@ -2811,17 +2809,17 @@
                     psn : opr :: 3 267 IF
                       psn : opr :: 2 299 OR
                         psn : opr :: 2 299 OR
-                          psn : opr :: 2 313 POW
+                          psn : opr :: 2 313 IEQ
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = next_state
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = SIGASP_STOP
-                          psn : opr :: 2 313 POW
+                          psn : opr :: 2 313 IEQ
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = next_state
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = SIGASP_STOP
-                        psn : opr :: 2 313 POW
+                        psn : opr :: 2 313 IEQ
                           psn : opr :: 1 260 VARIABLE
                             psn : str :: name = next_state
                           psn : opr :: 1 260 VARIABLE
@@ -2839,7 +2837,7 @@
                     psn : opr :: 1 301 NOT
                       psn : opr :: 1 260 VARIABLE
                         psn : str :: name = enabled
-                    psn : opr :: 2 314 sigscr_zigzag.dat
+                    psn : opr :: 2 314 INE
                       psn : opr :: 1 259 FUNCTION
                         psn : str :: name = block_state
                       psn : opr :: 1 260 VARIABLE
@@ -2858,17 +2856,17 @@
                     psn : opr :: 3 267 IF
                       psn : opr :: 2 299 OR
                         psn : opr :: 2 299 OR
-                          psn : opr :: 2 313 POW
+                          psn : opr :: 2 313 IEQ
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = next_state
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = SIGASP_STOP
-                          psn : opr :: 2 313 POW
+                          psn : opr :: 2 313 IEQ
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = next_state
                             psn : opr :: 1 260 VARIABLE
                               psn : str :: name = SIGASP_STOP
-                        psn : opr :: 2 313 POW
+                        psn : opr :: 2 313 IEQ
                           psn : opr :: 1 260 VARIABLE
                             psn : str :: name = next_state
                           psn : opr :: 1 260 VARIABLE
@@ -2887,7 +2885,7 @@
                   psn : str :: name = def_draw_state
                   psn : opr :: 1 260 VARIABLE
                     psn : str :: name = state
-        psn : opr :: 3 264 EXTERN
+        psn : opr :: 3 264 SCRIPT
           psn : str :: name = NSWCollight-05
           psn : opr :: 2 278 DEF_LIST
             psn : opr :: 2 278 DEF_LIST
@@ -2919,7 +2917,7 @@
                   psn : opr :: 1 301 NOT
                     psn : opr :: 1 260 VARIABLE
                       psn : str :: name = enabled
-                  psn : opr :: 2 314 sigscr_zigzag.dat
+                  psn : opr :: 2 314 INE
                     psn : opr :: 1 259 FUNCTION
                       psn : str :: name = block_state
                     psn : opr :: 1 260 VARIABLE
@@ -2941,17 +2939,17 @@
                 psn : opr :: 3 267 IF
                   psn : opr :: 2 299 OR
                     psn : opr :: 2 299 OR
-                      psn : opr :: 2 313 POW
+                      psn : opr :: 2 313 IEQ
                         psn : opr :: 1 260 VARIABLE
                           psn : str :: name = next_state
                         psn : opr :: 1 260 VARIABLE
                           psn : str :: name = SIGASP_STOP
-                      psn : opr :: 2 313 POW
+                      psn : opr :: 2 313 IEQ
                         psn : opr :: 1 260 VARIABLE
                           psn : str :: name = next_state
                         psn : opr :: 1 260 VARIABLE
                           psn : str :: name = SIGASP_STOP
-                    psn : opr :: 2 313 POW
+                    psn : opr :: 2 313 IEQ
                       psn : opr :: 1 260 VARIABLE
                         psn : str :: name = next_state
                       psn : opr :: 1 260 VARIABLE
@@ -2970,7 +2968,7 @@
                 psn : str :: name = def_draw_state
                 psn : opr :: 1 260 VARIABLE
                   psn : str :: name = state
-      psn : opr :: 3 264 EXTERN
+      psn : opr :: 3 264 SCRIPT
         psn : str :: name = NSWCollight-06
         psn : opr :: 2 278 DEF_LIST
           psn : opr :: 2 278 DEF_LIST
@@ -3002,7 +3000,7 @@
                 psn : opr :: 1 301 NOT
                   psn : opr :: 1 260 VARIABLE
                     psn : str :: name = enabled
-                psn : opr :: 2 314 sigscr_zigzag.dat
+                psn : opr :: 2 314 INE
                   psn : opr :: 1 259 FUNCTION
                     psn : str :: name = block_state
                   psn : opr :: 1 260 VARIABLE
@@ -3024,17 +3022,17 @@
               psn : opr :: 2 267 IF
                 psn : opr :: 2 299 OR
                   psn : opr :: 2 299 OR
-                    psn : opr :: 2 313 POW
+                    psn : opr :: 2 313 IEQ
                       psn : opr :: 1 260 VARIABLE
                         psn : str :: name = next_state
                       psn : opr :: 1 260 VARIABLE
                         psn : str :: name = SIGASP_STOP
-                    psn : opr :: 2 313 POW
+                    psn : opr :: 2 313 IEQ
                       psn : opr :: 1 260 VARIABLE
                         psn : str :: name = next_state
                       psn : opr :: 1 260 VARIABLE
                         psn : str :: name = SIGASP_STOP
-                  psn : opr :: 2 313 POW
+                  psn : opr :: 2 313 IEQ
                     psn : opr :: 1 260 VARIABLE
                       psn : str :: name = next_state
                     psn : opr :: 1 260 VARIABLE
@@ -3049,3 +3047,50 @@
               psn : str :: name = def_draw_state
               psn : opr :: 1 260 VARIABLE
                 psn : str :: name = state
+
+  PRINT LIST
+
+  Script = NSWCollight-06
+  Script = NSWCollight-05
+  Script = NSWCollight-01Junct
+  Script = NSWCollight-gantry-01
+  Script = NSWCollight1x2+1x2gantry
+  Script = CTNShunt2
+  Script = CTNShunt1
+  Script = NSW_SemUQ3Pos_Home
+  Script = NSW_SemLQDistComb
+  Script = NSW_SemLQDist
+  Script = NSW_SemLQHomeBranch
+  Script = NSW_SemLQHome
+  Script = NSWCollightsig-04
+  Script = NSWCollightsig-03
+  Script = NSWLandmark
+  Script = NSWCollight2x3Junct
+  Script = CTNPointIndication-head
+  Script = CTNPointIndication-light
+  Script = NSWCollightsig-07
+  Script = NSWCollightsig-08
+  Script = NSWCollight-09
+  Script = NSWCollight-10
+  Script = NSWCollight-gantry-02
+  Script = NSWCollight-11
+  Script = NSWcollight-12
+  Script = NSWcollight-13
+  Script = NSWCollight-gantry-03
+  Script = NSWcollight-14
+  Script = NSWcollight-15
+  Script = NSWcollight-16
+  Script = NSWBrakeLandmark
+  Script = NSWStopSign
+  Script = NSWcollight-17
+  Script = NSWcollight-18
+  Script = NSWcollight-19
+  Script = NSW_SemUQ3Pos_Distant
+  Script = NSW_SemLQDwarf
+  Script = NSW_SemUQ2Pos_Distant
+  Script = NSW_SemLQDistFGL
+  Script = NSW_SemLQLoop
+  Script = NSW_SemLQSiding
+
+  End program main
+
