@@ -44,7 +44,7 @@ Input files
         bas.y    ::  Parsing of the scripts
         main.c   ::  A test program
         makefile ::
-        sigscr.c ::  Tree structure storage routines
+        load_sigscr_file.c ::  Read file, create tree.
         sigscr.h ::  Tree structure specifications
 
 Compilation and Testing
@@ -55,9 +55,9 @@ Compilation and Testing
         gcc -c y.tab.c
         flex bas.l
         gcc -c lex.yy.c
-        gcc -c sigscr.c
+        gcc -c load_sigscr_file.c
         gcc -c main.c
-        gcc lex.yy.o y.tab.o sigscr.o main.o -o main
+        gcc lex.yy.o y.tab.o load_sigscr_file.o main.o -o main
 
      The command ./main' should then generate output, matching that saved in file 'test.out'.
 
@@ -66,7 +66,7 @@ Files copied to ZR
          lex.yy.c
          y.tab.c
          y.tab.h
-         sigscr.c
+         load_sigscr_file.c
          sigscr.h
 
 

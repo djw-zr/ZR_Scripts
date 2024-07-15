@@ -35,19 +35,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+
+#if 1
 #include "sigscr.h"
 #include "y.tab.h"
 
 int load_sigscr_file(char *or_route_dir, char *script_file) ;
 int print_sigscr_tree(nodeType *p) ;
 int print_sigscr_names(nodeType *p) ;
+int replace_var_names(nodeType *p) ;
 
 nodeType *sTree = NULL;
 
 int main(int argc, char *argv[]) {
 
-
-      printf("  Start program main\n") ;
+      printf("  Start program main\n\n") ;
 #if 1
       load_sigscr_file(".","sigscr.dat") ;
 #else
@@ -55,6 +57,9 @@ int main(int argc, char *argv[]) {
       load_sigscr_file(".","sigscr_test_2.dat") ;
       load_sigscr_file(".","sigscr_eur1.dat") ;
 #endif
+      printf("\n  REPLACE VARIABLE NAMES\n\n") ;
+      replace_var_names(sTree) ;
+
       printf("\n  PRINT TREE\n\n") ;
       print_sigscr_tree(sTree) ;
 
@@ -65,3 +70,16 @@ int main(int argc, char *argv[]) {
 
       return 0;
 }
+#else
+
+int main(int argc, char *argv[]) {
+
+  FILE *yyin ;
+      yyin = fopen("sigscr.dat", "r");
+      yylex();
+      fclose(yyin);
+}
+
+
+
+#endif

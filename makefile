@@ -49,5 +49,5 @@ y.tab.h: bas.y sigscr.h
 	bison -dy -Dparse.trace bas.y
 
 clean:
-	rm -f main *.o lex.yy.c y.tab.h y.tab.c *~
+	rm -f main *.o lex.yy.c y.tab.h y.tab.c *~ y.output
 

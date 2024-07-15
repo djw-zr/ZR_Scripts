@@ -105,13 +105,13 @@ nodeType *nPtr;    /* node pointer */
 %token  SC_IFX SC_BB SC_NO_OP SC_NEG SC_COMMA SC_EXPR_LIST
 %token  SC_AND SC_OR SC_EOR SC_NOT SC_INT
 %token  SC_GT SC_LT SC_GE SC_LE SC_EQ SC_NE
-%token  SC_IGT SC_ILT SC_IGE SC_ILE SC_IEQ SC_INE SC_POW
+%token  SC_IGT SC_ILT SC_IGE SC_ILE SC_IEQ SC_INE SC_PLUS SC_POW
 %nonassoc SC_IFX
 %nonassoc SC_ELSE
 %precedence SC_NEG
 %left  SC_AND SC_OR SC_EOR
-%left  SC_GE SC_LE SC_EQ SC_NE '>' '<' SC_IGE SC_ILE SC_IEQ SC_INE SC_IGT SC_ILT SC_POW '^'
-%left '+' '-'
+%left  SC_GT SC_LT SC_GE SC_LE SC_EQ SC_NE SC_IGE SC_ILE SC_IEQ SC_INE SC_IGT SC_ILT SC_POW '^'
+%left  SC_PLUS '-'
 %left '*' '/'
 %nonassoc SC_NOT  '!'   '#'        /*  Should be right?? */
 %nonassoc SC_UMINUS
@@ -196,6 +196,7 @@ stmt:
     | SC_NAME SC_XE expr ';'     { $$ = opr(SC_XE, 2, str($1), $3);     }
     | SC_NAME SC_DE expr ';'     { $$ = opr(SC_DE, 2, str($1), $3);     }
     | SC_NAME SC_IASD expr ';'   { $$ = opr(SC_IASD, 2, str($1), $3);   }
+    | SC_NAME SC_AMD expr ';'    { $$ = opr(SC_AMD, 2, str($1), $3);   }
     | SC_WHILE '(' expr ')' stmt { $$ = opr(SC_WHILE, 2, $3, $5);       }
     | SC_IF '(' expr ')' stmt %prec SC_IFX { $$ = opr(SC_IF, 2, $3, $5);      }
     | SC_IF '(' expr ')' stmt SC_ELSE stmt { $$ = opr(SC_IF, 3, $3, $5, $7);  }
@@ -213,12 +214,12 @@ expr:
     | SC_FVALUE                  { $$ = opr(SC_FVALUE,1,str($1)) ;      }
     | '-' expr %prec SC_UMINUS   { $$ = opr(SC_UMINUS, 1, $2);          }
     | function                   { $$ = $1 ;                            }
-    | expr '+' expr              { $$ = opr('+', 2, $1, $3);            }
+    | expr SC_PLUS expr          { $$ = opr(SC_PLUS, 2, $1, $3);        }
     | expr '-' expr              { $$ = opr('-', 2, $1, $3);            }
     | expr '*' expr              { $$ = opr('*', 2, $1, $3);            }
     | expr '/' expr              { $$ = opr('/', 2, $1, $3);            }
-    | expr '<' expr              { $$ = opr('<', 2, $1, $3);            }
-    | expr '>' expr              { $$ = opr('>', 2, $1, $3);            }
+    | expr SC_LT expr            { $$ = opr(SC_LT, 2, $1, $3);          }
+    | expr SC_GT expr            { $$ = opr(SC_GT, 2, $1, $3);          }
     | expr SC_GE expr            { $$ = opr(SC_GE, 2, $1, $3);          }
     | expr SC_LE expr            { $$ = opr(SC_LE, 2, $1, $3);          }
     | expr SC_NE expr            { $$ = opr(SC_NE, 2, $1, $3);          }
@@ -253,12 +254,16 @@ function:
 %%
 /*
  *  C Routines used to generate tree
+ *
+ *  In principal the nodes could be of different length but here
+ *  they are all defined to be of size nodeType.  However means that
+ *  the 'opr' type node can have no more than three elements.
  */
 nodeType *con(int value) {
 nodeType *p ;
 int      ip = 0 ;
 /* allocate node */
-      if ((p = malloc(sizeof(conNodeType))) == NULL) yyerror(&p,"out of memory");
+      if ((p = malloc(sizeof(nodeType))) == NULL) yyerror(&p,"out of memory");
 /* copy information */
         p->type      = typeCon;
         p->con.value = value;
@@ -274,7 +279,7 @@ nodeType *id(int i) {
 nodeType *p ;
 int      ip = 0 ;
 /* allocate node */
-      if ((p = malloc(sizeof(idNodeType))) == NULL) yyerror(&p,"out of memory");
+      if ((p = malloc(sizeof(nodeType))) == NULL) yyerror(&p,"out of memory");
 /* copy information */
       p->type = typeId;
       p->id.i = i;
@@ -290,7 +295,7 @@ nodeType *str(char *name){
 nodeType *p ;
 int      ip = 0 ;
 /* allocate node */
-      if ((p = malloc(sizeof(strNodeType))) == NULL) yyerror(&p,"out of memory");
+      if ((p = malloc(sizeof(nodeType))) == NULL) yyerror(&p,"out of memory");
 /* copy information */
       p->type     = typeStr      ;
       p->str.name = strdup(name) ;
@@ -307,13 +312,20 @@ va_list   ap  ;
 nodeType *p   ;
 size_t   size ;
 int      i, ip = 0;
+/*  Check parameter 'nops' */
+      if(nops>3){
+        printf("  Signal script error\n");
+        printf("  Routine called with parameter 'nops' >3\n");
+        printf("  Program stopping ... \n");
+        exit(1);
+      }
 /* allocate node */
-      size = sizeof(oprNodeType) + (nops - 1) * sizeof(nodeType*);
-      if ((p = malloc(size)) == NULL) yyerror(&p,"out of memory");
+      if ((p = malloc(sizeof(nodeType))) == NULL) yyerror(&p,"out of memory");
 /* copy information */
       p->type = typeOpr;
       p->opr.oper = oper;
       p->opr.nops = nops;
+      for (i = 0; i < 3; i++) p->opr.op[i] = NULL;
       va_start(ap, nops);
       for (i = 0; i < nops; i++) p->opr.op[i] = va_arg(ap, nodeType*);
       va_end(ap);
